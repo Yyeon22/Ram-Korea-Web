@@ -1,0 +1,13 @@
+# 저장소에는 LF로 저장 (리눅스 웹서버 기준)
+* text=auto eol=lf
+
+# 바이너리
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary

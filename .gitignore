@@ -1,0 +1,19 @@
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# 편집기
+.vscode/
+.idea/
+*.swp
+*~
+
+# 로그 · 임시
+*.log
+*.tmp
+~$*
+
+# 업로드 전 원본 사진 보관용 (용량이 큰 원본은 저장소에 올리지 않습니다)
+assets/img/_original/

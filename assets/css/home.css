@@ -1,0 +1,273 @@
+@charset "utf-8";
+/* ============================================================
+   RAM KOREA — home.css
+   메인 페이지 전용 스타일
+   ============================================================ */
+
+/* ---------- 1. 히어로 ---------- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  background: var(--navy-900);
+  color: var(--white);
+  overflow: hidden;
+}
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: heroZoom 18s var(--ease) forwards;
+}
+@keyframes heroZoom {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1); }
+}
+.hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(19, 26, 35, 0.55) 0%, rgba(19, 26, 35, 0.15) 38%, rgba(19, 26, 35, 0.82) 100%),
+    linear-gradient(90deg, rgba(19, 26, 35, 0.62) 0%, rgba(19, 26, 35, 0.05) 70%);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: var(--header-h);
+}
+.hero__eyebrow {
+  display: inline-block;
+  margin-bottom: 22px;
+  padding: 7px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.9);
+}
+.hero__title {
+  max-width: 17em;
+  font-size: clamp(30px, 5.6vw, 62px);
+  font-weight: 800;
+  line-height: 1.28;
+  letter-spacing: -0.04em;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
+}
+.hero__title .em { color: var(--red-400); }
+.hero__desc {
+  max-width: 34em;
+  margin-top: 26px;
+  font-size: clamp(15px, 1.8vw, 19px);
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+
+/* 히어로 등장 */
+.hero__eyebrow, .hero__title, .hero__desc, .hero__actions {
+  opacity: 0;
+  transform: translateY(26px);
+  animation: heroUp 0.95s var(--ease) forwards;
+}
+.hero__eyebrow { animation-delay: 0.15s; }
+.hero__title   { animation-delay: 0.3s; }
+.hero__desc    { animation-delay: 0.5s; }
+.hero__actions { animation-delay: 0.68s; }
+@keyframes heroUp { to { opacity: 1; transform: none; } }
+
+/* 스크롤 유도 */
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  z-index: 2;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+}
+.hero__scroll svg { width: 22px; height: 22px; animation: scrollBob 1.9s var(--ease) infinite; }
+@keyframes scrollBob {
+  0%, 100% { transform: translateY(0); opacity: 0.75; }
+  50%      { transform: translateY(9px); opacity: 1; }
+}
+.hero__scroll:hover { color: var(--white); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg img { animation: none; }
+  .hero__eyebrow, .hero__title, .hero__desc, .hero__actions { opacity: 1; transform: none; animation: none; }
+  .hero__scroll svg { animation: none; }
+}
+@media (max-width: 680px) {
+  .hero { min-height: 92svh; }
+  .hero__actions .btn { flex: 1 1 100%; }
+}
+
+/* ---------- 2. 기업이념 요약 ---------- */
+.philosophy { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+.philosophy__visual { position: relative; }
+.philosophy__visual img { width: 100%; border-radius: var(--radius-lg); }
+.philosophy__badge {
+  position: absolute;
+  right: -18px; bottom: -18px;
+  padding: 26px 30px;
+  background: var(--red-500);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+.philosophy__badge strong { display: block; font-size: 30px; font-weight: 800; line-height: 1.2; }
+.philosophy__badge span { font-size: 13px; opacity: 0.85; }
+
+.ram-letters { display: grid; gap: 14px; margin-top: 32px; }
+.ram-letters li {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 18px;
+  align-items: baseline;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.ram-letters .letter {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--red-500);
+  letter-spacing: -0.02em;
+}
+.ram-letters .word { font-weight: 700; font-size: 17px; }
+.ram-letters .desc { display: block; margin-top: 2px; font-size: 15px; font-weight: 400; color: var(--text-muted); }
+
+@media (max-width: 900px) {
+  .philosophy { grid-template-columns: 1fr; }
+  .philosophy__visual { order: -1; }
+  .philosophy__badge { right: 12px; bottom: -14px; padding: 18px 22px; }
+  .philosophy__badge strong { font-size: 24px; }
+}
+
+/* ---------- 3. 실적 슬라이더 헤더 ---------- */
+.slider-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(28px, 3.5vw, 44px);
+}
+@media (max-width: 680px) { .slider-head { align-items: flex-start; flex-direction: column; } }
+
+/* 실적 카드 */
+.work-card { position: relative; display: block; overflow: hidden; border-radius: var(--radius); background: var(--navy-800); }
+.work-card__thumb { aspect-ratio: 4 / 3.1; }
+.work-card__thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease), opacity 0.4s var(--ease); }
+.work-card::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(19, 26, 35, 0) 40%, rgba(19, 26, 35, 0.92) 100%);
+  transition: background 0.4s var(--ease);
+}
+.work-card:hover img { transform: scale(1.06); }
+.work-card__body {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  padding: 28px 26px;
+  color: var(--white);
+}
+.work-card__cat { font-size: 13px; font-weight: 700; color: var(--red-400); letter-spacing: 0.04em; }
+.work-card__title { margin-top: 8px; font-size: 20px; line-height: 1.45; }
+.work-card__meta { margin-top: 10px; font-size: 14px; color: rgba(255, 255, 255, 0.66); }
+
+/* ---------- 4. 숫자로 보는 램코리아 ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.stats__item { padding: clamp(28px, 4vw, 44px) 24px; background: var(--navy-800); text-align: center; }
+.stats__num {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 3px;
+  font-size: clamp(32px, 4.6vw, 52px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--white);
+}
+.stats__num .unit { font-size: 0.42em; font-weight: 700; color: var(--red-400); }
+.stats__label { margin-top: 12px; font-size: 15px; color: rgba(255, 255, 255, 0.66); }
+@media (max-width: 680px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- 5. 공지 / 보도자료 ---------- */
+.news { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); }
+.news__head { display: flex; align-items: center; justify-content: space-between; padding-bottom: 18px; border-bottom: 2px solid var(--navy-800); }
+.news__head h3 { font-size: 22px; }
+.news__list { margin-top: 8px; }
+.news__item { border-bottom: 1px solid var(--line); }
+.news__link { display: flex; align-items: baseline; gap: 16px; padding: 18px 4px; transition: color 0.2s var(--ease); }
+.news__link:hover .news__title { color: var(--red-500); text-decoration: underline; }
+.news__title {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.2s var(--ease);
+}
+.news__date { flex: none; font-size: 14px; color: var(--gray-400); }
+@media (max-width: 900px) { .news { grid-template-columns: 1fr; } }
+
+/* ---------- 6. 문의 CTA ---------- */
+.cta {
+  position: relative;
+  padding: clamp(56px, 8vw, 104px) 0;
+  background: var(--navy-800);
+  color: var(--white);
+  overflow: hidden;
+  text-align: center;
+}
+.cta::before {
+  content: "RAM KOREA";
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(80px, 17vw, 240px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: rgba(255, 255, 255, 0.032);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.cta__inner { position: relative; z-index: 1; }
+.cta__title { font-size: clamp(24px, 3.6vw, 40px); }
+.cta__desc { margin-top: 16px; color: rgba(255, 255, 255, 0.68); font-size: clamp(15px, 1.7vw, 18px); }
+.cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px; }
+.cta__tel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.cta__tel svg { width: 22px; height: 22px; color: var(--red-400); }
+@media (max-width: 680px) { .cta__actions .btn { flex: 1 1 100%; } }
