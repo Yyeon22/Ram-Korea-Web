@@ -31,9 +31,12 @@ python -m http.server 5173
 Ram/
 ├─ index.html              메인 페이지
 ├─ privacy.html            개인정보처리방침
+├─ 404.html                없는 주소 안내 페이지
 ├─ favicon.svg             파비콘
 ├─ robots.txt              검색로봇 수집 규칙
 ├─ sitemap.xml             검색엔진 제출용 사이트맵
+├─ _headers                Cloudflare Pages 응답 헤더 (보안·캐시)
+├─ _redirects              Cloudflare Pages 주소 리다이렉트
 │
 ├─ about/                  회사소개 (5)
 │   ├─ ceo.html            CEO 인사말
@@ -168,22 +171,58 @@ pr/press.html?id=press-001            보도자료 상세
 
 ---
 
-## 6. 배포 (ram-korea.net 연결)
+## 6. 배포 — Cloudflare Pages
 
-빌드가 필요 없으므로 **폴더 안의 모든 파일을 그대로 웹서버에 올리면** 됩니다.
+빌드 과정이 없으므로 **GitHub 저장소를 연결하면 그대로 배포**됩니다.
+이후에는 `git push` 할 때마다 1~2분 안에 자동으로 다시 배포됩니다.
 
-1. 호스팅 업체(카페24·가비아 등)의 FTP 정보로 접속합니다.
-2. 웹 루트 폴더(`/public_html`, `/www` 등)에 이 폴더의 **내용물 전체**를 업로드합니다.
-   - `index.html` 이 웹 루트 바로 아래에 오도록 합니다.
-3. 도메인 관리 화면에서 `ram-korea.net` 의 네임서버(또는 A 레코드)를 호스팅 서버로 지정합니다.
-4. `https://ram-korea.net` 접속을 확인하고, 호스팅 관리자에서 **SSL 인증서(무료 Let's Encrypt)** 를 설정합니다.
-5. 검색등록
-   - 네이버 서치어드바이저 / 구글 서치콘솔에 사이트를 등록합니다.
-   - 발급받은 인증 코드를 `index.html` `<head>` 안의 주석 처리된 `naver-site-verification`,
-     `google-site-verification` 태그에 넣고 주석을 해제합니다.
-   - `sitemap.xml` 주소(`https://ram-korea.net/sitemap.xml`)를 제출합니다.
+### 6-1. 도메인 먼저 등록
 
----
+> ⚠️ **`ram-korea.net` 은 현재 등록되어 있지 않습니다.**
+> .net 레지스트리(Verisign) 조회 결과 미등록 상태이며, 아무나 선점할 수 있습니다.
+> 가비아·카페24·후이즈 등에서 **연 2만원 내외**로 먼저 등록해 주세요.
+
+### 6-2. Cloudflare Pages 연결
+
+1. [dash.cloudflare.com](https://dash.cloudflare.com) 가입 (무료)
+2. **Workers & Pages → Create → Pages → Connect to Git**
+3. GitHub 계정을 연동하고 `Yyeon22/Ram-Korea-Web` 선택 *(Private 저장소도 가능)*
+4. 빌드 설정 — **아무것도 입력하지 않습니다**
+
+   | 항목 | 값 |
+   |---|---|
+   | Framework preset | `None` |
+   | Build command | *(비움)* |
+   | Build output directory | `/` |
+
+5. **Save and Deploy** → `ram-korea-web.pages.dev` 주소가 바로 발급됩니다
+
+### 6-3. 도메인 연결
+
+1. Pages 프로젝트 → **Custom domains → Set up a domain**
+2. `ram-korea.net` 입력
+3. 도메인의 네임서버를 Cloudflare 것으로 바꾸면 나머지는 자동입니다
+   *(등록 대행사 관리 화면에서 네임서버 변경)*
+4. `www.ram-korea.net` 도 같은 방식으로 추가하고 대표 주소로 리다이렉트 설정
+5. **SSL 인증서는 자동 발급**됩니다 — 별도 설정 불필요
+
+### 6-4. 검색엔진 등록
+
+- 네이버 서치어드바이저 / 구글 서치콘솔에 사이트 등록
+- 발급받은 인증 코드를 `index.html` `<head>` 의 주석 처리된
+  `naver-site-verification`, `google-site-verification` 태그에 넣고 주석 해제
+- `sitemap.xml` 주소(`https://ram-korea.net/sitemap.xml`) 제출
+
+### 참고 — 설정 파일
+
+| 파일 | 역할 |
+|---|---|
+| `_headers` | 보안 헤더와 캐시 시간. 이미지·CSS는 1일, `data/` 는 5분 캐시 |
+| `_redirects` | 구 주소 → 새 주소 301 이동, `/about` 같은 짧은 주소 처리 |
+| `404.html` | 없는 주소로 들어왔을 때 표시. 어느 경로에서나 뜨도록 링크가 절대경로입니다 |
+
+> 다른 호스팅(카페24·가비아 등)으로 바꾸실 경우 `_headers` 와 `_redirects` 는
+> 동작하지 않습니다. 해당 호스팅의 `.htaccess` 등으로 옮겨야 합니다.
 
 ## 7. 남은 작업
 
