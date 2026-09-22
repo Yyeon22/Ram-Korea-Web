@@ -262,16 +262,18 @@
   /* ---------- 8. 실적 카드 마크업 ---------- */
   RAM.workCard = function (item) {
     var href = RAM.path("projects/detail.html?id=" + encodeURIComponent(item.id));
-    var status = item.status === "done" ? "완료" : "진행 중";
+    var cat = RAM.esc(item.category) + (item.stage ? " · " + RAM.esc(item.stage) : "");
+    var meta = [item.location || item.client, item.households]
+      .filter(function (v) { return v; }).join(" · ");
     return '' +
       '<a class="work-card" href="' + href + '">' +
         '<div class="work-card__thumb">' +
           '<img src="' + RAM.path(item.thumb) + '" alt="' + RAM.esc(item.title) + '" loading="lazy" width="800" height="600">' +
         '</div>' +
         '<div class="work-card__body">' +
-          '<span class="work-card__cat">' + RAM.esc(item.category) + " · " + status + "</span>" +
+          '<span class="work-card__cat">' + cat + "</span>" +
           '<h3 class="work-card__title">' + RAM.ph(item.title) + "</h3>" +
-          '<p class="work-card__meta">' + RAM.ph(item.location) + "</p>" +
+          '<p class="work-card__meta">' + RAM.ph(meta) + "</p>" +
         "</div>" +
       "</a>";
   };

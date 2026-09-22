@@ -30,8 +30,6 @@
     }).join("");
   }
 
-  function statusLabel(s) { return s === "done" ? "완료" : "진행 중"; }
-
   /* ============================================================
      1. 사업실적 — 목록
      ============================================================ */
@@ -39,31 +37,61 @@
     var grid = $("[data-project-grid]");
     if (!grid || !window.RAM_PROJECTS) return;
     var countEl = $("[data-project-count]");
+    var filterWrap = $("[data-project-filter]");
     var current = "all";
 
     function cardHtml(item) {
       var href = RAM.path("projects/detail.html?id=" + encodeURIComponent(item.id));
-      var badge = item.status === "done" ? "badge--done" : "badge--ongoing";
+      var stage = item.stage
+        ? '<span class="badge badge--ongoing">' + RAM.esc(item.stage) + "</span>"
+        : "";
+      var sub = [item.location || item.client, item.households]
+        .filter(function (v) { return v; }).join(" · ");
       return '' +
         '<a class="card" href="' + href + '">' +
           '<div class="card__thumb">' +
             '<img src="' + RAM.path(item.thumb) + '" alt="' + RAM.esc(item.title) + '" loading="lazy" width="800" height="600">' +
           "</div>" +
           '<div class="card__body">' +
-            '<div style="display:flex;gap:8px;align-items:center">' +
-              '<span class="badge ' + badge + '">' + statusLabel(item.status) + "</span>" +
+            '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">' +
               '<span class="t-caption" style="color:var(--red-500);font-weight:700">' + RAM.esc(item.category) + "</span>" +
+              stage +
             "</div>" +
             '<h3 class="card__title">' + RAM.ph(item.title) + "</h3>" +
-            '<p class="card__desc">' + RAM.ph(item.location) + "</p>" +
-            '<p class="card__meta">' + RAM.ph(item.period) + "</p>" +
+            '<p class="card__desc">' + RAM.ph(sub) + "</p>" +
+            '<p class="card__meta">' + RAM.ph(item.role) + "</p>" +
           "</div>" +
         "</a>";
     }
 
+    /* 필터 버튼을 데이터의 category 에서 자동 생성 */
+    function buildFilter() {
+      if (!filterWrap) return;
+      var cats = [];
+      RAM_PROJECTS.forEach(function (p) {
+        if (p.category && cats.indexOf(p.category) === -1) cats.push(p.category);
+      });
+      var html = '<button class="filter__btn" type="button" data-filter="all" aria-pressed="true">전체</button>';
+      cats.forEach(function (c) {
+        html += '<button class="filter__btn" type="button" data-filter="' + RAM.esc(c) +
+          '" aria-pressed="false">' + RAM.esc(c) + "</button>";
+      });
+      filterWrap.innerHTML = html;
+
+      $$("[data-filter]", filterWrap).forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          current = btn.getAttribute("data-filter");
+          $$("[data-filter]", filterWrap).forEach(function (b) {
+            b.setAttribute("aria-pressed", String(b === btn));
+          });
+          render();
+        });
+      });
+    }
+
     function render() {
       var list = RAM_PROJECTS.filter(function (p) {
-        return current === "all" || p.status === current;
+        return current === "all" || p.category === current;
       });
       if (countEl) countEl.textContent = list.length;
       grid.innerHTML = list.length
@@ -71,15 +99,7 @@
         : '<p class="board-empty" style="grid-column:1/-1">해당하는 실적이 없습니다.</p>';
     }
 
-    $$("[data-filter]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        current = btn.getAttribute("data-filter");
-        $$("[data-filter]").forEach(function (b) {
-          b.setAttribute("aria-pressed", String(b === btn));
-        });
-        render();
-      });
-    });
+    buildFilter();
     render();
   };
 
@@ -119,7 +139,9 @@
         RAM.esc(item.title) + " 사진 " + (i + 1) + '" loading="lazy" width="800" height="600"></figure>';
     }).join("");
 
+    /* 값이 비어 있는 항목은 표에서 아예 빼기 */
     function row(label, value) {
+      if (!value) return "";
       return "<tr><th scope=\"row\">" + label + "</th><td>" + RAM.ph(value) + "</td></tr>";
     }
 
@@ -137,18 +159,21 @@
 
     wrap.innerHTML = '' +
       '<div class="gallery" style="margin-bottom:48px">' + gallery + "</div>" +
-      '<div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">' +
-        '<span class="badge ' + (item.status === "done" ? "badge--done" : "badge--ongoing") + '">' + statusLabel(item.status) + "</span>" +
+      '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:16px">' +
         '<span class="t-caption" style="color:var(--red-500);font-weight:700">' + RAM.esc(item.category) + "</span>" +
+        (item.stage ? '<span class="badge badge--ongoing">' + RAM.esc(item.stage) + "</span>" : "") +
       "</div>" +
       '<h2 class="t-h3" style="margin-bottom:24px">' + RAM.ph(item.title) + "</h2>" +
-      '<p class="t-body" style="margin-bottom:36px">' + RAM.ph(item.summary) + "</p>" +
+      (item.summary ? '<p class="t-body" style="margin-bottom:36px">' + RAM.ph(item.summary) + "</p>" : "") +
       '<table class="table-info"><tbody>' +
         row("위치", item.location) +
-        row("규모", item.scale) +
-        row("사업기간", item.period) +
-        row("발주처", item.client) +
-        row("담당 업무", item.role) +
+        row("사업 규모", item.scale) +
+        row("사업 면적", item.area) +
+        row("연면적", item.floorArea) +
+        row("세대수", item.households) +
+        row("발주기관", item.client) +
+        row("참여기관", item.partners) +
+        row("수행업무", item.role) +
       "</tbody></table>" +
       navHtml;
   };
