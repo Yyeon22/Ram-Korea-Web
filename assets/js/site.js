@@ -308,7 +308,9 @@
     }).join("");
   };
 
-  /* ---------- 10. 문의 폼 검증 ---------- */
+  /* ---------- 10. 문의 폼 검증 ----------
+     현재 사이트에는 문의 폼이 없다. 폼을 다시 넣을 때를 위해 남겨 둔 코드로,
+     [data-contact-form] 요소가 없으면 아무 일도 하지 않는다. */
   RAM.initContactForm = function (form) {
     if (!form) return;
     var status = $("[data-form-status]", form);
@@ -355,7 +357,7 @@
         e.preventDefault();
         if (status) {
           status.textContent =
-            "폼 전송 주소가 아직 연결되지 않았습니다. contact/index.html 의 form action 값을 설정해 주세요.";
+            "폼 전송 주소가 아직 연결되지 않았습니다. form 태그의 action 값을 설정해 주세요.";
         }
       }
     });

@@ -30,7 +30,8 @@
     left: 0; right: 0; bottom: 0;
     z-index: 95;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
     height: calc(var(--mbar-h) + var(--safe-b));
     padding-bottom: var(--safe-b);
     background: var(--navy-800);
@@ -50,6 +51,7 @@
   }
   .m-actions__btn + .m-actions__btn { border-left: 1px solid rgba(255, 255, 255, 0.14); }
   .m-actions__btn svg { width: 18px; height: 18px; flex: none; }
+  .m-actions__num { font-weight: 800; letter-spacing: 0.01em; }
   .m-actions__btn:active { background: rgba(255, 255, 255, 0.10); }
   .m-actions__btn--call { background: var(--red-500); border-left-color: var(--red-500); }
   .m-actions__btn--call:active { background: var(--red-600); }
