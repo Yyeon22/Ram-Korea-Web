@@ -72,6 +72,9 @@ html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-h);
+  /* 안전망 : 어떤 콘텐츠가 들어와도 모바일에서 가로로 밀리지 않게.
+     clip 은 hidden 과 달리 스크롤 컨테이너를 만들지 않아 position:sticky 가 그대로 동작한다. */
+  overflow-x: clip;
 }
 
 body {

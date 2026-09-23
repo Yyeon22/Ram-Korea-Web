@@ -138,10 +138,12 @@
 @media (max-width: 480px) { .org__cols { grid-template-columns: 1fr; } }
 
 /* ---------- 5. 오시는 길 ---------- */
+/* height 를 vw 기반으로 계산한다.
+   aspect-ratio + min-height 조합은 모바일에서 폭이 역산돼 가로 스크롤을 만든다. */
 .map-box {
   position: relative;
-  aspect-ratio: 16 / 8;
-  min-height: 300px;
+  width: 100%;
+  height: clamp(260px, 50vw, 420px);
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--gray-100);

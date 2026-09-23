@@ -1,0 +1,208 @@
+@charset "utf-8";
+/* ============================================================
+   RAM KOREA — mobile.css
+   휴대폰·태블릿 전용 UI
+   (다른 CSS 를 모두 읽은 뒤 마지막에 불러온다)
+
+   1. 하단 고정 액션바 (전화 / 온라인문의)
+   2. 모바일 메뉴 사용성
+   3. 손가락 터치 영역 확대
+   4. 터치 기기에서 hover 효과 끄기
+   5. 화면별 레이아웃 조정
+   ============================================================ */
+
+:root {
+  /* 아이폰 노치·홈바 영역 */
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --mbar-h: 0px;
+}
+
+/* ------------------------------------------------------------
+   1. 하단 고정 액션바
+   ------------------------------------------------------------ */
+.m-actions { display: none; }
+
+@media (max-width: 1080px) {
+  :root { --mbar-h: 60px; }
+
+  .m-actions {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 95;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: calc(var(--mbar-h) + var(--safe-b));
+    padding-bottom: var(--safe-b);
+    background: var(--navy-800);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.22);
+  }
+  .m-actions__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .m-actions__btn + .m-actions__btn { border-left: 1px solid rgba(255, 255, 255, 0.14); }
+  .m-actions__btn svg { width: 18px; height: 18px; flex: none; }
+  .m-actions__btn:active { background: rgba(255, 255, 255, 0.10); }
+  .m-actions__btn--call { background: var(--red-500); border-left-color: var(--red-500); }
+  .m-actions__btn--call:active { background: var(--red-600); }
+
+  /* 액션바가 푸터 내용을 가리지 않도록 */
+  .site-footer { padding-bottom: calc(var(--mbar-h) + var(--safe-b)); }
+
+  /* 맨 위로 버튼을 액션바 위로 */
+  .to-top {
+    right: 14px;
+    bottom: calc(var(--mbar-h) + var(--safe-b) + 14px);
+    width: 46px; height: 46px;
+  }
+
+  /* 메뉴를 열면 액션바는 감춘다 */
+  body.is-nav-open .m-actions { display: none; }
+}
+
+@media print { .m-actions { display: none !important; } }
+
+/* ------------------------------------------------------------
+   2. 모바일 메뉴 사용성
+   ------------------------------------------------------------ */
+@media (max-width: 1080px) {
+  .mobile-nav {
+    padding-bottom: calc(40px + var(--safe-b));
+    overscroll-behavior: contain;   /* 메뉴 끝에서 뒤 페이지가 같이 밀리지 않게 */
+    -webkit-overflow-scrolling: touch;
+  }
+  .mobile-nav__head { min-height: 58px; }
+  .mobile-nav__sub a {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding-top: 0; padding-bottom: 0;
+  }
+  /* 햄버거 버튼이 화면 가장자리에 붙어 눌리기 어렵지 않도록 */
+  .nav-toggle { margin-right: -8px; }
+}
+
+/* ------------------------------------------------------------
+   3. 터치 영역 확대 (권장 최소 44px)
+   ------------------------------------------------------------ */
+@media (max-width: 1080px) {
+  .link-more { padding: 10px 0; }
+  .footer__links a { padding: 8px 0; }
+  .footer__policy { gap: 4px 20px; }
+  .footer__policy a { padding: 8px 0; }
+  .breadcrumb ol { padding: 8px 0; }
+  .breadcrumb a { display: inline-block; padding: 6px 0; }
+  .filter__btn { min-height: 44px; }
+  .pagination button, .pagination a { min-width: 44px; height: 44px; }
+
+  /* 슬라이더 점 — 보이는 크기는 그대로, 누를 수 있는 범위만 넓힌다 */
+  .slider__dots { gap: 4px; }
+  .slider__dot { position: relative; }
+  .slider__dot::after { content: ""; position: absolute; inset: -16px -6px; }
+
+  /* 로고 */
+  .logo { padding: 6px 0; }
+}
+
+/* ------------------------------------------------------------
+   4. 터치 기기에서 hover 효과 끄기
+      — 손가락으로 누르면 hover 가 그대로 남아 카드가 검게 굳는 문제 방지
+   ------------------------------------------------------------ */
+@media (hover: none) {
+  .btn:hover { transform: none; }
+
+  .card:hover { transform: none; box-shadow: none; border-color: var(--line); }
+  .card:hover .card__thumb img { transform: none; }
+
+  .biz-card:hover { transform: none; background: var(--white); border-color: var(--line); }
+  .biz-card:hover::before { transform: scaleX(0); }
+  .biz-card:hover .biz-card__title,
+  .biz-card:hover .biz-card__arrow { color: var(--navy-800); }
+  .biz-card:hover .biz-card__desc { color: var(--text-muted); }
+  .biz-card:hover .biz-card__icon { color: var(--red-500); }
+  .biz-card:hover .biz-card__arrow svg { transform: none; }
+
+  .work-card:hover img { transform: none; }
+  .gallery__item:hover img { transform: none; }
+  .table-list tbody tr:hover { background: transparent; }
+  .link-more:hover svg { transform: none; }
+
+  /* 누르는 순간의 반응은 남겨 둔다 */
+  .btn:active { opacity: 0.86; }
+  .card:active, .biz-card:active, .work-card:active { opacity: 0.9; }
+}
+
+/* ------------------------------------------------------------
+   5. 화면별 레이아웃 조정
+   ------------------------------------------------------------ */
+@media (max-width: 680px) {
+  /* 히어로 — 액션바와 겹치는 스크롤 안내는 숨긴다 */
+  .hero { min-height: 88svh; }
+  .hero__scroll { display: none; }
+  .hero__inner { padding-bottom: 24px; }
+  .hero__actions { margin-top: 32px; }
+
+  /* 푸터 — 링크를 2단으로 묶어 스크롤 길이를 줄인다 */
+  .footer__links { grid-template-columns: repeat(2, 1fr); gap: 20px 16px; }
+  .footer__bottom { padding-bottom: 24px; }
+
+  /* 기업이념 배지가 사진 밖으로 튀어나오지 않도록 */
+  .philosophy__badge { right: 10px; bottom: -10px; padding: 16px 20px; }
+  .philosophy__badge strong { font-size: 22px; }
+
+  /* 문의 폼 */
+  .form__actions { flex-direction: column; }
+  .form__actions .btn { width: 100%; }
+  .form__policy-box { max-height: 120px; }
+
+  /* 오시는 길 — 지도 자리가 내용보다 작아 잘리지 않도록 */
+  .map-box { height: clamp(300px, 78vw, 420px); }
+  .map-placeholder { padding: 18px; font-size: 14px; }
+  .map-placeholder strong { font-size: 16px; }
+  .map-links { margin-top: 14px; justify-content: center; }
+
+  /* 본문 여백 */
+  .quote { padding: 22px 20px; }
+  .note-box { padding: 20px; }
+  .board-view__body { padding: 28px 0 40px; }
+}
+
+/* 조직도 — 한 줄로 내려오면 어느 팀 소속인지 구분되지 않으므로 팀별로 묶는다 */
+@media (max-width: 480px) {
+  .org__col {
+    gap: 8px;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--gray-50);
+  }
+  .org__col > .org__node:first-child {
+    background: var(--navy-700);
+    border-color: var(--navy-700);
+    color: var(--white);
+    min-height: 48px;
+  }
+  .org__col > .org__node--sub { min-height: 46px; background: var(--white); }
+}
+
+/* 숫자 섹션 — 2단으로 좁아지면 '정비사업전문관리' 같은 긴 이름이 칸을 밀어낸다 */
+@media (max-width: 480px) {
+  .stats__item { min-width: 0; padding-left: 12px; padding-right: 12px; }
+  .stats__label { font-size: 13px; overflow-wrap: anywhere; }
+}
+
+@media (max-width: 400px) {
+  /* 작은 화면(아이폰 SE 등)에서 헤더 로고가 햄버거와 부딪히지 않게 */
+  .logo__name { font-size: 17px; }
+  .logo__sub { font-size: 9px; }
+  .m-actions__btn { font-size: 15px; gap: 6px; }
+  .stats__num { font-size: 28px; }
+}

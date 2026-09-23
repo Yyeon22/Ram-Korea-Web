@@ -217,14 +217,17 @@
 
 /* ---------- 5. 공지 / 보도자료 ---------- */
 .news { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); }
+/* 그리드 칸이 제목 길이만큼 벌어지지 않도록 (모바일 가로 스크롤 방지) */
+.news > * { min-width: 0; }
 .news__head { display: flex; align-items: center; justify-content: space-between; padding-bottom: 18px; border-bottom: 2px solid var(--navy-800); }
 .news__head h3 { font-size: 22px; }
 .news__list { margin-top: 8px; }
 .news__item { border-bottom: 1px solid var(--line); }
-.news__link { display: flex; align-items: baseline; gap: 16px; padding: 18px 4px; transition: color 0.2s var(--ease); }
+.news__link { display: flex; align-items: baseline; gap: 16px; min-width: 0; padding: 18px 4px; transition: color 0.2s var(--ease); }
 .news__link:hover .news__title { color: var(--red-500); text-decoration: underline; }
 .news__title {
   flex: 1;
+  min-width: 0;
   font-size: 16px;
   font-weight: 600;
   overflow: hidden;
