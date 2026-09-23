@@ -14,3 +14,9 @@
 # 콘텐츠 데이터 — 수정이 바로 반영되도록 짧게
 /data/*
   Cache-Control: public, max-age=300
+
+# 임시 주소(*.pages.dev)는 검색엔진에 수집되지 않게 한다.
+# 실제 도메인(ram-korea.net)에는 적용되지 않으므로, 도메인을 연결하면
+# 별도 조치 없이 정상적으로 검색에 노출된다. 이 규칙은 그대로 두면 된다.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
