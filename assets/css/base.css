@@ -12,10 +12,10 @@
   --navy-700: #27313f;
   --navy-600: #38455a;
 
-  /* Accent — 로고 레드 */
-  --red-600: #8f1d24;
-  --red-500: #b3262e;
-  --red-400: #cc4a51;
+  /* Accent — 회사 CI 레드 (회사소개서 로고 원본에서 추출) */
+  --red-600: #B3241D;
+  --red-500: #D93128;
+  --red-400: #E8615A;
 
   /* Neutral */
   --white: #ffffff;
@@ -163,7 +163,7 @@ address { font-style: normal; }
   padding: 1px 8px;
   border: 1px dashed var(--red-400);
   border-radius: 3px;
-  background: rgba(179, 38, 46, 0.05);
+  background: rgba(217, 49, 40, 0.05);
   color: var(--red-500);
   font-size: 0.9em;
   font-weight: 600;

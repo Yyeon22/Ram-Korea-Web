@@ -27,8 +27,8 @@ window.RAM_PROJECTS = [
     households: "총 1,450세대",
     role: "상가 독립정산제 업무, 상가 사업관리(PM), 주구중심(상가) MD기획, 공사비 검증 등",
     summary: "",
-    thumb: "assets/img/work/work-01.svg",
-    images: ["assets/img/work/work-01.svg"]
+    thumb: "assets/img/work/hangang-mansion.jpg",
+    images: ["assets/img/work/hangang-mansion.jpg"]
   },
   {
     id: "banpo-3",
@@ -43,8 +43,8 @@ window.RAM_PROJECTS = [
     households: "상가조합원 147세대",
     role: "상가 관리처분계획 인가, VE(Value Engineering) 등",
     summary: "",
-    thumb: "assets/img/work/work-02.svg",
-    images: ["assets/img/work/work-02.svg"]
+    thumb: "assets/img/work/banpo-3.jpg",
+    images: ["assets/img/work/banpo-3.jpg"]
   },
   {
     id: "sinbanpo-4",
@@ -59,8 +59,8 @@ window.RAM_PROJECTS = [
     households: "총 3,307세대",
     role: "상가 독립정산제 업무, 상가 사업관리(PM), 주구중심(상가) MD기획 등",
     summary: "",
-    thumb: "assets/img/work/work-03.svg",
-    images: ["assets/img/work/work-03.svg"]
+    thumb: "assets/img/work/sinbanpo-4.jpg",
+    images: ["assets/img/work/sinbanpo-4.jpg"]
   },
   {
     id: "gwonseon-113-6",
@@ -75,8 +75,8 @@ window.RAM_PROJECTS = [
     households: "공동주택 2,178세대",
     role: "CM(건설사업관리) 및 정비사업 관리",
     summary: "",
-    thumb: "assets/img/work/work-04.svg",
-    images: ["assets/img/work/work-04.svg"]
+    thumb: "assets/img/work/gwonseon-113-6.jpg",
+    images: ["assets/img/work/gwonseon-113-6.jpg"]
   },
   {
     id: "juan-4",
@@ -91,8 +91,8 @@ window.RAM_PROJECTS = [
     households: "총 1,856세대",
     role: "PM / CM, 정비사업 자금관리, 관리처분(변경)인가, VE 등",
     summary: "",
-    thumb: "assets/img/work/work-05.svg",
-    images: ["assets/img/work/work-05.svg"]
+    thumb: "assets/img/work/juan-4.jpg",
+    images: ["assets/img/work/juan-4.jpg"]
   },
   {
     id: "michu-1",
@@ -107,8 +107,8 @@ window.RAM_PROJECTS = [
     households: "총 1,314세대",
     role: "PM / CM / VE 등",
     summary: "",
-    thumb: "assets/img/work/work-06.svg",
-    images: ["assets/img/work/work-06.svg"]
+    thumb: "assets/img/work/michu-1.jpg",
+    images: ["assets/img/work/michu-1.jpg"]
   },
   {
     id: "beomcheon-1-1",
@@ -123,8 +123,8 @@ window.RAM_PROJECTS = [
     households: "1,509세대 (공동주택 및 오피스텔)",
     role: "공사비 검증 — 시공자 공사비 검증, 부동산원 공사비 검증 등",
     summary: "",
-    thumb: "assets/img/work/work-01.svg",
-    images: ["assets/img/work/work-01.svg"]
+    thumb: "assets/img/work/beomcheon-1-1.jpg",
+    images: ["assets/img/work/beomcheon-1-1.jpg"]
   },
   {
     id: "gumi-wonpyeong",
@@ -139,8 +139,8 @@ window.RAM_PROJECTS = [
     households: "공동주택 763세대",
     role: "CM(건설사업관리)",
     summary: "",
-    thumb: "assets/img/work/work-02.svg",
-    images: ["assets/img/work/work-02.svg"]
+    thumb: "assets/img/work/gumi-wonpyeong.jpg",
+    images: ["assets/img/work/gumi-wonpyeong.jpg"]
   },
   {
     id: "songwol",
@@ -155,8 +155,8 @@ window.RAM_PROJECTS = [
     households: "공동주택 611세대",
     role: "PM / CM 등",
     summary: "",
-    thumb: "assets/img/work/work-03.svg",
-    images: ["assets/img/work/work-03.svg"]
+    thumb: "assets/img/work/songwol.jpg",
+    images: ["assets/img/work/songwol.jpg"]
   },
   {
     id: "buchang",
@@ -171,8 +171,8 @@ window.RAM_PROJECTS = [
     households: "총 816세대",
     role: "PM / CM, 상가 MD계획 수립, 상가분양 대행, 관리처분계획인가, VE",
     summary: "",
-    thumb: "assets/img/work/work-04.svg",
-    images: ["assets/img/work/work-04.svg"]
+    thumb: "assets/img/work/buchang.jpg",
+    images: ["assets/img/work/buchang.jpg"]
   },
   {
     id: "cheonho-397",
@@ -187,8 +187,8 @@ window.RAM_PROJECTS = [
     households: "420세대",
     role: "CM(건설사업관리)",
     summary: "",
-    thumb: "assets/img/work/work-05.svg",
-    images: ["assets/img/work/work-05.svg"]
+    thumb: "assets/img/work/cheonho-397.jpg",
+    images: ["assets/img/work/cheonho-397.jpg"]
   },
   {
     id: "seocho-mujigae",
@@ -203,8 +203,8 @@ window.RAM_PROJECTS = [
     households: "총 1,314세대",
     role: "상가 사무용역(PM), CM, VE, 공사비 검증 등 (대표이사 실적)",
     summary: "",
-    thumb: "assets/img/work/work-06.svg",
-    images: ["assets/img/work/work-06.svg"]
+    thumb: "assets/img/work/seocho-mujigae.jpg",
+    images: ["assets/img/work/seocho-mujigae.jpg"]
   },
 
   /* ---------- 정비사업전문관리 ---------- */
@@ -221,8 +221,8 @@ window.RAM_PROJECTS = [
     households: "총 2,999세대",
     role: "서울시 공공지원 조합 직접설립",
     summary: "",
-    thumb: "assets/img/work/work-01.svg",
-    images: ["assets/img/work/work-01.svg"]
+    thumb: "assets/img/work/jayang-4a.jpg",
+    images: ["assets/img/work/jayang-4a.jpg"]
   },
   {
     id: "gongdeok-8",
@@ -237,8 +237,8 @@ window.RAM_PROJECTS = [
     households: "총 1,564세대",
     role: "서울시 공공지원 조합설립 추진위원회 구성",
     summary: "",
-    thumb: "assets/img/work/work-02.svg",
-    images: ["assets/img/work/work-02.svg"]
+    thumb: "assets/img/work/gongdeok-8.jpg",
+    images: ["assets/img/work/gongdeok-8.jpg"]
   },
   {
     id: "bangbae-7",
@@ -253,8 +253,8 @@ window.RAM_PROJECTS = [
     households: "총 347세대",
     role: "정비사업전문관리",
     summary: "",
-    thumb: "assets/img/work/work-03.svg",
-    images: ["assets/img/work/work-03.svg"]
+    thumb: "assets/img/work/bangbae-7.jpg",
+    images: ["assets/img/work/bangbae-7.jpg"]
   },
   {
     id: "namguro",
@@ -269,8 +269,8 @@ window.RAM_PROJECTS = [
     households: "총 299세대",
     role: "정비사업전문관리",
     summary: "",
-    thumb: "assets/img/work/work-04.svg",
-    images: ["assets/img/work/work-04.svg"]
+    thumb: "assets/img/work/namguro.jpg",
+    images: ["assets/img/work/namguro.jpg"]
   },
   {
     id: "simgok-1",
@@ -285,8 +285,8 @@ window.RAM_PROJECTS = [
     households: "공동주택 412세대",
     role: "정비사업전문관리",
     summary: "",
-    thumb: "assets/img/work/work-05.svg",
-    images: ["assets/img/work/work-05.svg"]
+    thumb: "assets/img/work/simgok-1.jpg",
+    images: ["assets/img/work/simgok-1.jpg"]
   },
   {
     id: "yeongju-1",
@@ -301,8 +301,8 @@ window.RAM_PROJECTS = [
     households: "총 489세대",
     role: "정비사업전문관리 (영남지사)",
     summary: "",
-    thumb: "assets/img/work/work-06.svg",
-    images: ["assets/img/work/work-06.svg"]
+    thumb: "assets/img/work/yeongju-1.jpg",
+    images: ["assets/img/work/yeongju-1.jpg"]
   },
   {
     id: "sinjeong-1",
@@ -317,8 +317,8 @@ window.RAM_PROJECTS = [
     households: "총 304세대",
     role: "정비사업전문관리 (영남지사)",
     summary: "",
-    thumb: "assets/img/work/work-01.svg",
-    images: ["assets/img/work/work-01.svg"]
+    thumb: "assets/img/work/sinjeong-1.jpg",
+    images: ["assets/img/work/sinjeong-1.jpg"]
   },
 
   /* ---------- 소규모주택정비 ---------- */
@@ -335,8 +335,8 @@ window.RAM_PROJECTS = [
     households: "총 206세대",
     role: "정비사업전문관리",
     summary: "",
-    thumb: "assets/img/work/work-02.svg",
-    images: ["assets/img/work/work-02.svg"]
+    thumb: "assets/img/work/dobong-625.jpg",
+    images: ["assets/img/work/dobong-625.jpg"]
   },
   {
     id: "changdae-villa",
@@ -351,8 +351,8 @@ window.RAM_PROJECTS = [
     households: "총 139세대",
     role: "정비사업전문관리",
     summary: "",
-    thumb: "assets/img/work/work-03.svg",
-    images: ["assets/img/work/work-03.svg"]
+    thumb: "assets/img/work/changdae-villa.jpg",
+    images: ["assets/img/work/changdae-villa.jpg"]
   },
 
   /* ---------- 빅데이터 연구과제 ---------- */
@@ -371,8 +371,8 @@ window.RAM_PROJECTS = [
     partners: "㈜람코리아, 한국도시주택연구소, 공공성과연구원, 건국대학교, 한국지방자치학회",
     role: "인구 관련 사회현안 문제 진단 등",
     summary: "과학기술정보통신부 산하 한국데이터산업진흥원의 데이터 연구지원사업으로 수행한 연구과제입니다.",
-    thumb: "assets/img/work/work-04.svg",
-    images: ["assets/img/work/work-04.svg"]
+    thumb: "assets/img/work/work-06.svg",
+    images: ["assets/img/work/work-06.svg"]
   },
   {
     id: "bigdata-2022",
@@ -389,7 +389,7 @@ window.RAM_PROJECTS = [
     partners: "㈜람코리아, 한국도시주택연구소",
     role: "서울시 청년 인구지수 개발 및 진단",
     summary: "데이터 기반으로 서울시 인구를 분석하고 청년 인구지수를 개발한 사업입니다.",
-    thumb: "assets/img/work/work-05.svg",
-    images: ["assets/img/work/work-05.svg"]
+    thumb: "assets/img/work/work-06.svg",
+    images: ["assets/img/work/work-06.svg"]
   }
 ];

@@ -171,7 +171,7 @@
   font-weight: 700;
   letter-spacing: 0;
 }
-.badge--ongoing { background: rgba(179, 38, 46, 0.09); color: var(--red-500); }
+.badge--ongoing { background: rgba(217, 49, 40, 0.09); color: var(--red-500); }
 .badge--done { background: var(--gray-100); color: var(--gray-600); }
 .badge--new { background: var(--red-500); color: var(--white); }
 

@@ -29,9 +29,9 @@
   </g>
 
   <!-- 중심 광장 -->
-  <circle cx="400" cy="340" r="34" fill="none" stroke="#b3262e" stroke-width="3"/>
-  <circle cx="400" cy="340" r="7" fill="#b3262e"/>
+  <circle cx="400" cy="340" r="34" fill="none" stroke="#D93128" stroke-width="3"/>
+  <circle cx="400" cy="340" r="7" fill="#D93128"/>
 
   <!-- 주 동선 -->
-  <path d="M0 340H360M440 340H800" stroke="#cc4a51" stroke-opacity="0.35" stroke-width="2"/>
+  <path d="M0 340H360M440 340H800" stroke="#E8615A" stroke-opacity="0.35" stroke-width="2"/>
 </svg>

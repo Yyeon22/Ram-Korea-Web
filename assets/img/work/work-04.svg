@@ -35,7 +35,7 @@
   </g>
 
   <!-- 가운데 집 지붕 레드 액센트 -->
-  <path d="M286 440 L344 394 L402 440" fill="none" stroke="#b3262e" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M286 440 L344 394 L402 440" fill="none" stroke="#D93128" stroke-width="6" stroke-linejoin="round"/>
 
   <!-- 골목 -->
   <rect x="0" y="560" width="800" height="2" fill="#ffffff" opacity="0.13"/>

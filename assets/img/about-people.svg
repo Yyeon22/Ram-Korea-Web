@@ -6,8 +6,8 @@
       <stop offset="1" stop-color="#131a23"/>
     </linearGradient>
     <radialGradient id="apglow" cx="0.5" cy="0.52" r="0.42">
-      <stop offset="0" stop-color="#b3262e" stop-opacity="0.30"/>
-      <stop offset="1" stop-color="#b3262e" stop-opacity="0"/>
+      <stop offset="0" stop-color="#D93128" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#D93128" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
@@ -40,14 +40,14 @@
     <circle cx="315" cy="361" r="14" opacity="0.62"/>
     <circle cx="315" cy="263" r="14" opacity="0.62"/>
   </g>
-  <g fill="#cc4a51" opacity="0.72">
+  <g fill="#E8615A" opacity="0.72">
     <circle cx="550" cy="312" r="10"/>
     <circle cx="250" cy="312" r="10"/>
     <circle cx="400" cy="162" r="10"/>
   </g>
 
   <!-- 중심 -->
-  <circle cx="400" cy="312" r="34" fill="#b3262e"/>
+  <circle cx="400" cy="312" r="34" fill="#D93128"/>
   <circle cx="400" cy="312" r="34" fill="none" stroke="#ffffff" stroke-opacity="0.30" stroke-width="2"/>
 
   <!-- 지반 -->

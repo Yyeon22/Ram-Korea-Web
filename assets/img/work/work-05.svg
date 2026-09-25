@@ -30,8 +30,8 @@
   </g>
 
   <!-- 시공 진행 구간 -->
-  <rect x="330" y="296" width="140" height="88" fill="#b3262e" opacity="0.22"/>
-  <rect x="330" y="296" width="140" height="88" fill="none" stroke="#b3262e" stroke-width="3"/>
+  <rect x="330" y="296" width="140" height="88" fill="#D93128" opacity="0.22"/>
+  <rect x="330" y="296" width="140" height="88" fill="none" stroke="#D93128" stroke-width="3"/>
 
   <!-- 기초 -->
   <rect x="150" y="500" width="500" height="10" fill="#ffffff" opacity="0.12"/>
