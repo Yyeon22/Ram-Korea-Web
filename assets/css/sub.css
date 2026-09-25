@@ -30,6 +30,9 @@
 .ceo__sign { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 16px; }
 .ceo__sign strong { font-size: 20px; margin-left: 8px; }
 
+/* 대표이사 사진이 없는 동안 — 글만 한 단으로 */
+.ceo--solo { grid-template-columns: 1fr; }
+
 @media (max-width: 900px) { .ceo { grid-template-columns: 1fr; } }
 
 /* ---------- 2. 기업이념 ---------- */
