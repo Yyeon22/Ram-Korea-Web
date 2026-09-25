@@ -1,28 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="실적 이미지 02">
-  <title>실적 이미지 02 (임시 이미지)</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="단지 배치도를 추상화한 그래픽">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#273140"/>
-      <stop offset="100%" stop-color="#4a3b46"/>
+    <linearGradient id="w2bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#27313f"/>
+      <stop offset="1" stop-color="#131a23"/>
     </linearGradient>
   </defs>
-  <rect width="800" height="600" fill="url(#bg)"/>
-  <g fill="#ffffff" opacity="0.10">
-    <rect x="70" y="300" width="120" height="300"/>
-    <rect x="200" y="230" width="96" height="370"/>
-    <rect x="306" y="330" width="140" height="270"/>
-    <rect x="456" y="258" width="104" height="342"/>
-    <rect x="570" y="352" width="160" height="248"/>
+
+  <rect width="800" height="600" fill="url(#w2bg)"/>
+
+  <!-- 배치 그리드 -->
+  <g stroke="#ffffff" stroke-opacity="0.07" stroke-width="1">
+    <path d="M0 120H800M0 240H800M0 360H800M0 480H800"/>
+    <path d="M160 0V600M320 0V600M480 0V600M640 0V600"/>
   </g>
-  <g stroke="#ffffff" stroke-width="3" fill="none" opacity="0.22">
-    <path d="M628 352 L628 150 M520 178 L736 178 M628 118 L732 176 M628 118 L524 176 M628 150 L628 118 M700 178 L700 258"/>
+
+  <!-- 주동 배치 (평면 매스) -->
+  <g fill="#ffffff">
+    <rect x="96"  y="150" width="150" height="46" opacity="0.15"/>
+    <rect x="96"  y="222" width="150" height="46" opacity="0.15"/>
+    <rect x="286" y="150" width="46"  height="190" opacity="0.13"/>
+    <rect x="380" y="186" width="190" height="46" opacity="0.16"/>
+    <rect x="380" y="258" width="118" height="46" opacity="0.12"/>
+    <rect x="596" y="150" width="46"  height="154" opacity="0.14"/>
+    <rect x="150" y="380" width="46"  height="150" opacity="0.12"/>
+    <rect x="240" y="404" width="190" height="46" opacity="0.15"/>
+    <rect x="474" y="380" width="46"  height="150" opacity="0.13"/>
+    <rect x="564" y="404" width="118" height="46" opacity="0.11"/>
   </g>
-  <g fill="#ffffff" opacity="0.06">
-    <circle cx="150" cy="140" r="58"/>
-  </g>
-  <g text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif" fill="#ffffff">
-    <text x="400" y="470" font-size="30" font-weight="700" opacity="0.92">실적 이미지 02</text>
-    <text x="400" y="512" font-size="19" opacity="0.6">work-02.jpg</text>
-    <text x="400" y="548" font-size="15" opacity="0.42">실제 사진으로 교체해 주세요</text>
-  </g>
+
+  <!-- 중심 광장 -->
+  <circle cx="400" cy="340" r="34" fill="none" stroke="#b3262e" stroke-width="3"/>
+  <circle cx="400" cy="340" r="7" fill="#b3262e"/>
+
+  <!-- 주 동선 -->
+  <path d="M0 340H360M440 340H800" stroke="#cc4a51" stroke-opacity="0.35" stroke-width="2"/>
 </svg>
