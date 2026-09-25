@@ -71,6 +71,7 @@ Ram/
 │   └─ img/                이미지
 │       ├─ hero-city-night.jpg  메인·서브 상단 사진 (회사소개서 표지)
 │       ├─ philosophy-night.jpg  기업이념 사진 (회사소개서 표지 발췌)
+│       ├─ biz/                  사업영역 4개 페이지 이미지 (회사소개서 발췌)
 │       ├─ about-people.svg      CEO 페이지 임시 이미지
 │       ├─ logo*.svg             회사 공식 로고 (PDF 벡터 원본 추출)
 │       └─ work/                 실적 조감도 21장 + 대체 그래픽
@@ -156,6 +157,7 @@ pr/press.html?id=press-001            보도자료 상세
 | 기업이념 | ✅ `assets/img/philosophy-night.jpg` (회사소개서 표지 발췌) | 사무실·회의 사진이 생기면 교체 (1200×900) |
 | 대표이사 | ⚠️ `assets/img/about-people.svg` (직접 그린 그래픽) | **대표이사 사진** — `about/ceo.html` 의 img 경로 교체 |
 | 실적 사진 | ✅ `assets/img/work/<실적id>.jpg` 21장 (회사소개서 조감도) | 준공 사진이 생기면 같은 파일명으로 덮어쓰기 |
+| 사업영역 | ✅ `assets/img/biz/*.jpg` 4장 (회사소개서 발췌) — 도시계획사업만 그래픽 | 현장 사진이 생기면 교체 |
 | 심볼·로고 | ✅ 완료 — 회사소개서 PDF 벡터 원본에서 추출 | `logo.svg`(밝은 배경) / `logo-light.svg`(어두운 배경) / `logo-mark*.svg`(심볼) / `favicon.svg` |
 | 공유 썸네일 | (없음) | `assets/img/og-image.jpg` (1200×630) |
 
