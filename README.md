@@ -69,10 +69,10 @@ Ram/
 │   │   ├─ site.js         공통 스크립트 (외부 라이브러리 없음)
 │   │   └─ pages.js        목록/상세 렌더링 (실적·공지·보도자료)
 │   └─ img/                이미지
-│       ├─ hero-crane-dusk.svg   메인 대형 이미지 (임시)
+│       ├─ hero-city-night.jpg  메인·서브 상단 사진 (회사소개서 표지)
 │       ├─ about-people.svg      기업이념 이미지 (임시)
-│       ├─ logo-mark.svg         심볼 (임시)
-│       └─ work/                 실적 사진 (임시)
+│       ├─ logo*.svg             회사 공식 로고 (PDF 벡터 원본 추출)
+│       └─ work/                 실적 조감도 21장 + 대체 그래픽
 │
 └─ data/                   ★ 내용만 고치면 되는 파일
     ├─ projects.js         사업실적
@@ -145,14 +145,15 @@ pr/press.html?id=press-001            보도자료 상세
 ## 4. 이미지 교체
 
 실적 사진 21장은 **회사소개서 PDF에서 추출한 실제 조감도**입니다 (`assets/img/work/<실적id>.jpg`).
-메인 대문·기업이념 이미지만 직접 그린 추상 그래픽(SVG)이며, 실제 사진으로 바꾸면 더 좋아집니다.
+메인·서브 상단 사진도 회사소개서 표지에서 가져왔습니다.
+남은 임시 이미지는 기업이념 한 장뿐입니다.
 
-| 위치 | 임시 파일 | 교체할 파일 (권장 규격) |
+| 위치 | 현재 파일 | 교체할 파일 (권장 규격) |
 |---|---|---|
-| 메인 상단 | `assets/img/hero-crane-dusk.svg` | `hero-crane-dusk.jpg` (1920×1080 이상, 가로형) |
-| 서브 상단 | 위와 동일한 파일 사용 | 교체 시 `assets/css/sub.css` 맨 아래 경로도 함께 수정 |
-| 기업이념 | `assets/img/about-people.svg` | `about-people.jpg` (1200×900) |
-| 실적 사진 | `assets/img/work/work-01~06.svg` | `work-01.jpg` … (1200×900, 4:3) |
+| 메인 상단 | ✅ `assets/img/hero-city-night.jpg` (회사소개서 표지) | 더 좋은 사진이 생기면 교체 (1920×1080 이상, 가로형) |
+| 서브 상단 | 위와 같은 파일 | 교체 시 `assets/css/sub.css` 맨 아래 경로도 함께 수정 |
+| 기업이념 | ⚠️ `assets/img/about-people.svg` (직접 그린 그래픽) | `about-people.jpg` (1200×900) — 사무실·회의 사진 |
+| 실적 사진 | ✅ `assets/img/work/<실적id>.jpg` 21장 (회사소개서 조감도) | 준공 사진이 생기면 같은 파일명으로 덮어쓰기 |
 | 심볼·로고 | ✅ 완료 — 회사소개서 PDF 벡터 원본에서 추출 | `logo.svg`(밝은 배경) / `logo-light.svg`(어두운 배경) / `logo-mark*.svg`(심볼) / `favicon.svg` |
 | 공유 썸네일 | (없음) | `assets/img/og-image.jpg` (1200×630) |
 

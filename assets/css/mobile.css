@@ -149,6 +149,15 @@
   /* 히어로 — 액션바와 겹치는 스크롤 안내는 숨긴다 */
   .hero { min-height: 88svh; }
   .hero__scroll { display: none; }
+
+  /* 가로 그라데이션은 세로로 긴 화면에서 왼쪽만 덮어 본문이 사진에 묻힌다.
+     모바일에서는 위아래로 고르게 덮는다. */
+  .hero__bg::after {
+    background: linear-gradient(180deg,
+      rgba(19, 26, 35, 0.62) 0%,
+      rgba(19, 26, 35, 0.42) 38%,
+      rgba(19, 26, 35, 0.88) 100%);
+  }
   .hero__inner { padding-bottom: 24px; }
   .hero__actions { margin-top: 32px; }
 
