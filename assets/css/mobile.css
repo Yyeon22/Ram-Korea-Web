@@ -203,8 +203,7 @@
 
 @media (max-width: 400px) {
   /* 작은 화면(아이폰 SE 등)에서 헤더 로고가 햄버거와 부딪히지 않게 */
-  .logo__name { font-size: 17px; }
-  .logo__sub { font-size: 9px; }
+  .logo__img { height: 24px; }
   .m-actions__btn { font-size: 15px; gap: 6px; }
   .stats__num { font-size: 28px; }
 }

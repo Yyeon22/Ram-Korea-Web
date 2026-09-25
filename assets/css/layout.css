@@ -34,23 +34,15 @@
   gap: 24px;
 }
 
-/* 로고 */
-.logo { display: flex; align-items: center; gap: 10px; flex: none; }
-.logo__mark { width: 34px; height: 34px; flex: none; }
-.logo__text { display: flex; flex-direction: column; line-height: 1; }
-.logo__name {
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  color: var(--white);
+/* 로고 — 회사 공식 로고(SVG) */
+.logo { display: flex; align-items: center; flex: none; }
+.logo__img {
+  height: 40px;
+  width: auto;
+  flex: none;
+  transition: opacity 0.2s var(--ease);
 }
-.logo__name em { font-style: normal; color: var(--red-400); }
-.logo__sub {
-  margin-top: 4px;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  color: rgba(255, 255, 255, 0.55);
-}
+.logo:hover .logo__img { opacity: 0.82; }
 
 /* GNB */
 .gnb { display: flex; height: 100%; }
@@ -221,8 +213,7 @@ body.is-nav-open { overflow: hidden; }
   :root { --header-h: 64px; }
   .gnb, .header__tel { display: none; }
   .nav-toggle { display: block; }
-  .logo__mark { width: 30px; height: 30px; }
-  .logo__name { font-size: 18px; }
+  .logo__img { height: 28px; }
 }
 
 /* ---------- 3. 서브페이지 상단 비주얼 ---------- */

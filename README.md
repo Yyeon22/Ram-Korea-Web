@@ -153,7 +153,7 @@ pr/press.html?id=press-001            보도자료 상세
 | 서브 상단 | 위와 동일한 파일 사용 | 교체 시 `assets/css/sub.css` 맨 아래 경로도 함께 수정 |
 | 기업이념 | `assets/img/about-people.svg` | `about-people.jpg` (1200×900) |
 | 실적 사진 | `assets/img/work/work-01~06.svg` | `work-01.jpg` … (1200×900, 4:3) |
-| 심볼·로고 | `assets/img/logo-mark.svg`, `favicon.svg` | 회사 공식 로고 파일 |
+| 심볼·로고 | ✅ 완료 — 회사소개서 PDF 벡터 원본에서 추출 | `logo.svg`(밝은 배경) / `logo-light.svg`(어두운 배경) / `logo-mark*.svg`(심볼) / `favicon.svg` |
 | 공유 썸네일 | (없음) | `assets/img/og-image.jpg` (1200×630) |
 
 교체 후 HTML 안의 파일 경로에서 확장자를 `.svg` → `.jpg` 로 바꿔 주세요.
@@ -238,11 +238,10 @@ pr/press.html?id=press-001            보도자료 상세
 
 ## 7. 남은 작업
 
-화면에 보이던 `[확인 필요]` 표시는 모두 정리했습니다. **남은 것은 2가지**입니다.
+화면에 보이던 `[확인 필요]` 표시는 모두 정리했습니다. **남은 것은 1가지**입니다.
 
 | 항목 | 필요한 이유 | 반영 위치 |
 |---|---|---|
-| **로고 원본 파일** (ai / svg / png) | 현재 헤더·푸터·파비콘은 임시 도형입니다 | 헤더 · 푸터 · `favicon.svg` |
 | **대표 이메일** | 개인정보 보호책임자 연락처는 법정 기재사항입니다 | 오시는 길 · 개인정보처리방침 제10조 |
 
 ### 배포 직전에 확인할 것

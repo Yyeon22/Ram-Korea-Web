@@ -1,7 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" role="img" aria-label="RAM KOREA 심볼">
-  <title>RAM KOREA 심볼 (임시)</title>
-  <path d="M5 35.5 L20 6 L35 35.5" fill="none" stroke="#b3262e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="17" y="21" width="6" height="14.5" fill="currentColor"/>
-  <rect x="11.5" y="27" width="4" height="8.5" fill="currentColor" opacity="0.6"/>
-  <rect x="24.5" y="27" width="4" height="8.5" fill="currentColor" opacity="0.6"/>
+<!-- (주)람코리아 공식 로고 — 회사소개서 PDF 벡터 원본에서 추출 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.29 83.75" width="64.29" height="83.75" role="img" aria-label="RAM KOREA">
+  <path d="M35.52 0L32.52 0.48L29.92 1.82L27.87 3.85L26.52 6.44L26.04 9.42L26.52 12.39L27.87 14.98L29.92 17.01L32.52 18.35L35.52 18.83L38.51 18.35L41.11 17.01L43.16 14.98L44.51 12.39L44.99 9.42L44.51 6.44L43.16 3.85L41.11 1.82L38.51 0.48L35.52 0Z" fill="#D93128" fill-rule="evenodd"/>
+  <path d="M59.72 39.39L58.86 34.39L57.27 31.16L55.11 28.39L52.59 26.15L49.93 24.54L45.64 23.06L40.96 22.56L0 22.56L0.55 25.96L2.07 28.91L4.4 31.24L7.35 32.77L10.75 33.31L41.49 33.33L42.4 33.32L45.04 33.86L47.19 35.31L48.64 37.46L49.17 40.1L49.17 40.4L48.83 42.73L47.86 44.94L46.38 46.73L44.47 47.81L44.28 47.95L50.38 56.86L52.38 55.17L53.66 53.92L56.25 50.31L58.12 46.93L59.45 42.42L59.7 39.98L59.72 39.39Z" fill="#363737" fill-rule="evenodd"/>
+  <path d="M64.29 83.75L58.79 75.3L41.68 49L26.86 49L26.86 36.07L14.74 36.07L14.74 82.92L26.86 82.92L26.86 59.91L33.54 59.91L34 59.97L34.46 60.05L34.91 60.15L50.25 83.75L64.29 83.75Z" fill="#363737" fill-rule="evenodd"/>
 </svg>
