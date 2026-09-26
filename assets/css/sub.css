@@ -42,6 +42,7 @@
   letter-spacing: -0.035em;
 }
 .ceo-quote__text em { font-style: normal; color: var(--red-400); }
+.ceo-quote__close { color: var(--red-400); margin-left: 1px; }
 .ceo-quote__by {
   margin-top: clamp(24px, 3vw, 34px);
   padding-top: 18px;
