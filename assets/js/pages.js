@@ -148,6 +148,11 @@
       return;
     }
 
+    if (!RAM_PRESS.length) {
+      wrap.innerHTML = '<p class="board-empty">등록된 보도자료가 없습니다.</p>';
+      return;
+    }
+
     wrap.innerHTML = '<div class="grid grid--3">' + RAM_PRESS.map(function (p) {
       return '' +
         '<a class="card" href="' + RAM.path("pr/press.html?id=" + encodeURIComponent(p.id)) + '">' +
