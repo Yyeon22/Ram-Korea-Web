@@ -7,9 +7,16 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
 
-# 이미지·CSS·JS — 하루 캐시 (파일명에 해시가 없으므로 길게 잡지 않음)
-/assets/*
+# 이미지·폰트 — 하루 캐시 (교체가 드물다)
+/assets/img/*
   Cache-Control: public, max-age=86400
+
+# CSS·JS — 파일명에 해시가 없어 캐시를 길게 잡으면 수정이 반영되지 않는다.
+# 매번 서버에 확인하게 하고, 안 바뀌었으면 304 로 끝나므로 비용은 거의 없다.
+/assets/css/*
+  Cache-Control: public, max-age=0, must-revalidate
+/assets/js/*
+  Cache-Control: public, max-age=0, must-revalidate
 
 # 콘텐츠 데이터 — 수정이 바로 반영되도록 짧게
 /data/*
