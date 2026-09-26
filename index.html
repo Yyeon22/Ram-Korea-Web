@@ -84,9 +84,6 @@
         </div>
       </div>
       <div class="gnb__item">
-        <a class="gnb__link" href="projects/index.html" data-section="projects">사업실적</a>
-      </div>
-      <div class="gnb__item">
         <a class="gnb__link" href="pr/notice.html" data-section="pr">홍보센터</a>
         <div class="gnb__sub">
           <a href="pr/notice.html">공지사항</a>
@@ -135,9 +132,6 @@
     </div>
   </div>
   <div class="mobile-nav__item">
-    <a class="mobile-nav__head" href="projects/index.html">사업실적</a>
-  </div>
-  <div class="mobile-nav__item">
     <button class="mobile-nav__head" type="button" aria-expanded="false">홍보센터
       <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1 1l5 5 5-5"/></svg>
     </button>
@@ -172,7 +166,7 @@
           기업이념 보기
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a class="btn btn--ghost" href="projects/index.html">사업실적 보기</a>
+        <a class="btn btn--ghost" href="business/cm.html">사업영역 보기</a>
       </div>
     </div>
     <a class="hero__scroll" href="#philosophy" aria-label="아래로 스크롤">
@@ -309,68 +303,6 @@
     </div>
   </section>
 
-  <!-- ===================== 주요 실적 ===================== -->
-  <section class="section">
-    <div class="container">
-      <div class="slider-head reveal">
-        <div>
-          <span class="t-eyebrow">PROJECTS</span>
-          <h2 class="t-h2" style="margin-top:18px">주요 사업실적</h2>
-        </div>
-        <div class="slider__nav">
-          <button class="slider__btn" type="button" data-slider-prev aria-label="이전 실적">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <button class="slider__btn" type="button" data-slider-next aria-label="다음 실적">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <div class="slider reveal" data-slider>
-        <div class="slider__viewport">
-          <div class="slider__track" id="featuredWorks"></div>
-        </div>
-        <div class="slider__dots"></div>
-      </div>
-
-      <div style="margin-top:40px;text-align:center">
-        <a class="btn btn--line" href="projects/index.html">전체 실적 보기</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== 숫자로 보는 람코리아 ===================== -->
-  <section class="section section--dark section--tight">
-    <div class="container">
-      <div class="section-head is-center reveal" style="margin-bottom:36px">
-        <span class="t-eyebrow is-center">RAM KOREA IN NUMBERS</span>
-        <h2 class="t-h2">숫자로 보는 람코리아</h2>
-      </div>
-      <div class="stats reveal">
-        <div class="stats__item">
-          <p class="stats__num"><span data-stat="all">0</span><span class="unit">건</span></p>
-          <p class="stats__label">누적 수행 실적</p>
-        </div>
-        <div class="stats__item">
-          <p class="stats__num"><span data-stat="건설사업관리">0</span><span class="unit">건</span></p>
-          <p class="stats__label">건설사업관리 CM</p>
-        </div>
-        <div class="stats__item">
-          <p class="stats__num"><span data-stat="정비">0</span><span class="unit">건</span></p>
-          <p class="stats__label">정비사업전문관리</p>
-        </div>
-        <div class="stats__item">
-          <p class="stats__num"><span data-stat="빅데이터 연구">0</span><span class="unit">건</span></p>
-          <p class="stats__label">빅데이터 연구과제</p>
-        </div>
-      </div>
-      <p class="t-caption text-center" style="margin-top:18px">
-        ※ 회사소개서 수록 실적 기준이며, <code>data/projects.js</code> 에 실적을 추가하면 자동으로 반영됩니다.
-      </p>
-    </div>
-  </section>
-
   <!-- ===================== 공지 / 보도자료 ===================== -->
   <section class="section section--alt">
     <div class="container news">
@@ -452,7 +384,6 @@
         </div>
         <div>
           <h3>고객지원</h3>
-          <a href="projects/index.html">사업실적</a>
           <a href="pr/notice.html">공지사항</a>
           <a href="pr/press.html">보도자료·갤러리</a>
         </div>
@@ -484,29 +415,10 @@
   </svg>
 </button>
 
-<script src="data/projects.js"></script>
 <script src="data/notices.js"></script>
 <script src="data/press.js"></script>
 <script src="assets/js/site.js"></script>
 <script>
-  RAM.renderFeaturedWorks("#featuredWorks");
-
-  /* 숫자 섹션 — 실적 데이터에서 자동 집계 */
-  (function () {
-    var list = window.RAM_PROJECTS || [];
-    function count(key) {
-      if (key === "all") return list.length;
-      if (key === "정비") {
-        return list.filter(function (p) {
-          return p.category === "정비사업전문관리" || p.category === "소규모주택정비";
-        }).length;
-      }
-      return list.filter(function (p) { return p.category === key; }).length;
-    }
-    Array.prototype.forEach.call(document.querySelectorAll("[data-stat]"), function (el) {
-      el.setAttribute("data-count", count(el.getAttribute("data-stat")));
-    });
-  })();
   RAM.renderNewsList("#latestNotices", window.RAM_NOTICES, "pr/notice.html", 4);
   RAM.renderNewsList("#latestPress", window.RAM_PRESS, "pr/press.html", 4);
 </script>
