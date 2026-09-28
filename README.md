@@ -187,9 +187,10 @@ pr/press.html?id=press-001            보도자료 상세
 
 ### 6-1. 도메인 먼저 등록
 
-> ⚠️ **`ram-korea.net` 은 현재 등록되어 있지 않습니다.**
-> .net 레지스트리(Verisign) 조회 결과 미등록 상태이며, 아무나 선점할 수 있습니다.
-> 가비아·카페24·후이즈 등에서 **연 2만원 내외**로 먼저 등록해 주세요.
+> ⚠️ **대표 도메인은 `ram-korea.com` 입니다.** 아직 등록 전이라면 먼저 등록해 주세요.
+> 사이트가 Cloudflare Pages에 있으므로 **Cloudflare Registrar**(Domains → Registrations)에서
+> 같은 계정으로 사면 네임서버 설정 없이 바로 연결됩니다. 연 2만원 내외.
+> 등록 후 **자동연장(Auto-renew)** 이 켜져 있는지 꼭 확인하세요.
 
 ### 6-2. Cloudflare Pages 연결
 
@@ -209,10 +210,10 @@ pr/press.html?id=press-001            보도자료 상세
 ### 6-3. 도메인 연결
 
 1. Pages 프로젝트 → **Custom domains → Set up a domain**
-2. `ram-korea.net` 입력
-3. 도메인의 네임서버를 Cloudflare 것으로 바꾸면 나머지는 자동입니다
-   *(등록 대행사 관리 화면에서 네임서버 변경)*
-4. `www.ram-korea.net` 도 같은 방식으로 추가하고 대표 주소로 리다이렉트 설정
+2. `ram-korea.com` 입력
+3. Cloudflare에서 산 도메인이면 나머지는 자동입니다
+   *(다른 등록 대행사에서 샀다면 그곳 관리 화면에서 네임서버를 Cloudflare 것으로 변경)*
+4. `www.ram-korea.com` 도 같은 방식으로 추가하고 대표 주소로 리다이렉트 설정
 5. **SSL 인증서는 자동 발급**됩니다 — 별도 설정 불필요
 
 ### 6-4. 검색엔진 등록
@@ -220,7 +221,7 @@ pr/press.html?id=press-001            보도자료 상세
 - 네이버 서치어드바이저 / 구글 서치콘솔에 사이트 등록
 - 발급받은 인증 코드를 `index.html` `<head>` 의 주석 처리된
   `naver-site-verification`, `google-site-verification` 태그에 넣고 주석 해제
-- `sitemap.xml` 주소(`https://ram-korea.net/sitemap.xml`) 제출
+- `sitemap.xml` 주소(`https://ram-korea.com/sitemap.xml`) 제출
 
 ### 참고 — 설정 파일
 
