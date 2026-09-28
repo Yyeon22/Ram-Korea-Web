@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="고층 주거단지를 추상화한 그래픽">
+  <defs>
+    <linearGradient id="w1sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#27313f"/>
+      <stop offset="1" stop-color="#131a23"/>
+    </linearGradient>
+    <linearGradient id="w1far" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="w1near" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+    <pattern id="w1win" x="0" y="0" width="22" height="30" patternUnits="userSpaceOnUse">
+      <rect x="6" y="9" width="9" height="12" fill="#ffffff" opacity="0.10"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#w1sky)"/>
+
+  <!-- 뒤쪽 동 -->
+  <g>
+    <rect x="70"  y="210" width="110" height="390" fill="url(#w1far)"/>
+    <rect x="600" y="180" width="120" height="420" fill="url(#w1far)"/>
+    <rect x="70"  y="210" width="110" height="390" fill="url(#w1win)"/>
+    <rect x="600" y="180" width="120" height="420" fill="url(#w1win)"/>
+  </g>
+
+  <!-- 앞쪽 동 -->
+  <g>
+    <rect x="215" y="120" width="140" height="480" fill="url(#w1near)"/>
+    <rect x="395" y="255" width="130" height="345" fill="url(#w1near)"/>
+    <rect x="215" y="120" width="140" height="480" fill="url(#w1win)"/>
+    <rect x="395" y="255" width="130" height="345" fill="url(#w1win)"/>
+  </g>
+
+  <!-- 옥상 레드 액센트 -->
+  <rect x="215" y="120" width="140" height="5" fill="#D93128"/>
+  <rect x="395" y="255" width="130" height="4" fill="#D93128" opacity="0.62"/>
+
+  <!-- 지반선 -->
+  <rect x="0" y="566" width="800" height="1" fill="#ffffff" opacity="0.13"/>
+</svg>
