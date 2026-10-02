@@ -6,15 +6,13 @@
 /business/redevelopment.html    /business/maintenance.html    301
 /business/urban-renewal.html    /business/maintenance.html    301
 
-# 삭제된 페이지 → 대체 주소 (기존 링크·검색결과 대비)
-/projects             /business/cm.html      301
-/projects/*           /business/cm.html      301
-
+# 삭제된 고객문의 페이지 → 오시는 길 (기존 링크·검색결과 대비)
 /contact              /about/location.html   301
 /contact/index.html   /about/location.html   301
 /contact/*            /about/location.html   301
 
 # 디렉터리 접근 시 목록 페이지로
+/projects   /projects/index.html   301
 /pr         /pr/notice.html        301
 /about      /about/ceo.html        301
 /business   /business/cm.html      301

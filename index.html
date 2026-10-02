@@ -7,15 +7,15 @@
 <meta name="description" content="(주)람코리아는 재건축·재개발·리모델링·도시정비를 전문으로 하는 도시정비 기업입니다. 사람을 가장 소중히 생각하는 마음으로 더 나은 도시를 만듭니다.">
 <meta name="keywords" content="람코리아, RAM KOREA, 건설사업관리, CM, 정비사업전문관리, 재건축, 재개발, 리모델링, 도시계획, 도시빅데이터">
 <meta name="author" content="(주)람코리아">
-<link rel="canonical" href="https://ram-korea.net/">
+<link rel="canonical" href="https://ram-korea.com/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="(주)람코리아">
 <meta property="og:title" content="(주)람코리아 | RAM은 사람을 가장 소중히 생각합니다">
 <meta property="og:description" content="재건축·재개발·리모델링·도시정비 전문. 사람을 가장 소중히 생각하는 도시정비 기업 (주)람코리아.">
-<meta property="og:url" content="https://ram-korea.net/">
-<meta property="og:image" content="https://ram-korea.net/assets/img/og-image.jpg">
+<meta property="og:url" content="https://ram-korea.com/">
+<meta property="og:image" content="https://ram-korea.com/assets/img/og-image.jpg">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -24,6 +24,9 @@
 <!-- <meta name="google-site-verification" content="발급받은_구글_인증코드"> -->
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="assets/css/base.css?v=20260926">
@@ -35,12 +38,22 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "람코리아",
+  "alternateName": ["(주)람코리아", "RAM KOREA"],
+  "url": "https://ram-korea.com/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "Organization",
   "name": "(주)람코리아",
   "alternateName": "RAM KOREA",
-  "url": "https://ram-korea.net/",
-  "logo": "https://ram-korea.net/assets/img/logo-mark.svg",
+  "url": "https://ram-korea.com/",
+  "logo": "https://ram-korea.com/assets/img/logo-mark.svg",
   "telephone": "+82-2-455-7773",
+  "email": "ramkorea2018@daum.net",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "자양로19길 8",
@@ -82,6 +95,9 @@
           <a href="business/urban-planning.html">도시계획사업</a>
           <a href="business/bigdata.html">도시빅데이터</a>
         </div>
+      </div>
+      <div class="gnb__item">
+        <a class="gnb__link" href="projects/index.html" data-section="projects">사업실적</a>
       </div>
       <div class="gnb__item">
         <a class="gnb__link" href="pr/notice.html" data-section="pr">홍보센터</a>
@@ -132,6 +148,9 @@
     </div>
   </div>
   <div class="mobile-nav__item">
+    <a class="mobile-nav__head" href="projects/index.html">사업실적</a>
+  </div>
+  <div class="mobile-nav__item">
     <button class="mobile-nav__head" type="button" aria-expanded="false">홍보센터
       <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1 1l5 5 5-5"/></svg>
     </button>
@@ -166,7 +185,7 @@
           기업이념 보기
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a class="btn btn--ghost" href="business/cm.html">사업영역 보기</a>
+        <a class="btn btn--ghost" href="projects/index.html">사업실적 보기</a>
       </div>
     </div>
     <a class="hero__scroll" href="#philosophy" aria-label="아래로 스크롤">
@@ -303,6 +322,37 @@
     </div>
   </section>
 
+  <!-- ===================== 주요 실적 ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="slider-head reveal">
+        <div>
+          <span class="t-eyebrow">PROJECTS</span>
+          <h2 class="t-h2" style="margin-top:18px">주요 사업실적</h2>
+        </div>
+        <div class="slider__nav">
+          <button class="slider__btn" type="button" data-slider-prev aria-label="이전 실적">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="slider__btn" type="button" data-slider-next aria-label="다음 실적">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="slider reveal" data-slider>
+        <div class="slider__viewport">
+          <div class="slider__track" id="featuredWorks"></div>
+        </div>
+        <div class="slider__dots"></div>
+      </div>
+
+      <div style="margin-top:40px;text-align:center">
+        <a class="btn btn--line" href="projects/index.html">전체 실적 보기</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== 공지 / 보도자료 ===================== -->
   <section class="section section--alt">
     <div class="container news">
@@ -384,6 +434,7 @@
         </div>
         <div>
           <h3>고객지원</h3>
+          <a href="projects/index.html">사업실적</a>
           <a href="pr/notice.html">공지사항</a>
           <a href="pr/press.html">보도자료·갤러리</a>
         </div>
@@ -415,10 +466,13 @@
   </svg>
 </button>
 
+<script src="data/projects.js"></script>
 <script src="data/notices.js"></script>
 <script src="data/press.js"></script>
 <script src="assets/js/site.js?v=20260926"></script>
 <script>
+  RAM.renderFeaturedWorks("#featuredWorks");
+
   RAM.renderNewsList("#latestNotices", window.RAM_NOTICES, "pr/notice.html", 4);
   RAM.renderNewsList("#latestPress", window.RAM_PRESS, "pr/press.html", 4);
 </script>

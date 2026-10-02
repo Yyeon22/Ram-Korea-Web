@@ -5,4 +5,4 @@ Allow: /
 User-agent: Yeti
 Allow: /
 
-Sitemap: https://ram-korea.net/sitemap.xml
+Sitemap: https://ram-korea.com/sitemap.xml

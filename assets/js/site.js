@@ -1,6 +1,7 @@
 /* ============================================================
    RAM KOREA — site.js
-   공통 스크립트 : 헤더 / 모바일메뉴 / 스크롤효과 / 목록 렌더링
+   공통 스크립트 : 헤더 / 모바일메뉴 / 스크롤효과 / 슬라이더 /
+                   목록 렌더링 / 문의 폼 검증
    외부 라이브러리 없음 (Vanilla JS)
    ============================================================ */
 (function () {
@@ -258,7 +259,35 @@
     render();
   };
 
-  /* ---------- 8. 목록 렌더링 ---------- */
+  /* ---------- 8. 실적 카드 마크업 ---------- */
+  RAM.workCard = function (item) {
+    var href = RAM.path("projects/detail.html?id=" + encodeURIComponent(item.id));
+    var cat = RAM.esc(item.category) + (item.stage ? " · " + RAM.esc(item.stage) : "");
+    var meta = [item.location || item.client, item.households]
+      .filter(function (v) { return v; }).join(" · ");
+    return '' +
+      '<a class="work-card" href="' + href + '">' +
+        '<div class="work-card__thumb">' +
+          '<img src="' + RAM.path(item.thumb) + '" alt="' + RAM.esc(item.title) + '" loading="lazy" width="800" height="600">' +
+        '</div>' +
+        '<div class="work-card__body">' +
+          '<span class="work-card__cat">' + cat + "</span>" +
+          '<h3 class="work-card__title">' + RAM.ph(item.title) + "</h3>" +
+          '<p class="work-card__meta">' + RAM.ph(meta) + "</p>" +
+        "</div>" +
+      "</a>";
+  };
+
+  /* ---------- 9. 목록 렌더링 (메인) ---------- */
+  RAM.renderFeaturedWorks = function (sel) {
+    var track = $(sel);
+    if (!track || !window.RAM_PROJECTS) return;
+    var list = RAM_PROJECTS.filter(function (p) { return p.featured; }).slice(0, 8);
+    track.innerHTML = list.map(function (item) {
+      return '<div class="slider__slide">' + RAM.workCard(item) + "</div>";
+    }).join("");
+  };
+
   RAM.renderNewsList = function (sel, data, linkBase, limit) {
     var wrap = $(sel);
     if (!wrap) return;
