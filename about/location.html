@@ -23,8 +23,9 @@
 <link rel="stylesheet" href="../assets/css/base.css?v=20260926">
 <link rel="stylesheet" href="../assets/css/layout.css?v=20260926">
 <link rel="stylesheet" href="../assets/css/components.css?v=20260926">
-<link rel="stylesheet" href="../assets/css/sub.css?v=20260926">
+<link rel="stylesheet" href="../assets/css/sub.css?v=20261027">
 <link rel="stylesheet" href="../assets/css/mobile.css?v=20260926">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 
 <body data-base="../">
@@ -163,22 +164,11 @@
     <div class="container">
 
       <div class="map-box reveal">
-        <!-- ▼ 지도 연결 방법 (둘 중 하나)
-             1) 카카오맵 JavaScript SDK : 아래 주석을 해제하고 [카카오 JavaScript 키]를 입력
-                <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은_카카오_JavaScript_키"></script>
-             2) 네이버 지도 / 카카오맵 '지도 공유 > 소스코드 복사'로 받은 iframe 을
-                아래 .map-placeholder 대신 붙여넣기
-        -->
-        <div class="map-placeholder">
-          <div>
-            <strong>(주)람코리아</strong>
-            서울시 광진구 자양로19길 8, 3층 (05026)<br>
-            <div class="map-links">
-              <a class="btn btn--sm btn--line" href="https://map.kakao.com/?q=%EC%84%9C%EC%9A%B8%EC%8B%9C+%EA%B4%91%EC%A7%84%EA%B5%AC+%EC%9E%90%EC%96%91%EB%A1%9C19%EA%B8%B8+8" target="_blank" rel="noopener">카카오맵에서 보기</a>
-              <a class="btn btn--sm btn--line" href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EA%B4%91%EC%A7%84%EA%B5%AC%20%EC%9E%90%EC%96%91%EB%A1%9C19%EA%B8%B8%208" target="_blank" rel="noopener">네이버지도에서 보기</a>
-            </div>
-          </div>
-        </div>
+        <div id="companyMap" aria-label="람코리아 위치 지도"></div>
+      </div>
+      <div class="map-links">
+        <a class="btn btn--sm btn--line" href="https://map.kakao.com/?q=%EC%84%9C%EC%9A%B8%EC%8B%9C+%EA%B4%91%EC%A7%84%EA%B5%AC+%EC%9E%90%EC%96%91%EB%A1%9C19%EA%B8%B8+8" target="_blank" rel="noopener">카카오맵에서 보기</a>
+        <a class="btn btn--sm btn--line" href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EA%B4%91%EC%A7%84%EA%B5%AC%20%EC%9E%90%EC%96%91%EB%A1%9C19%EA%B8%B8%208" target="_blank" rel="noopener">네이버지도에서 보기</a>
       </div>
 
       <div class="grid grid--2" style="margin-top:56px;align-items:start">
@@ -314,6 +304,30 @@
 <script src="../data/press.js"></script>
 <script src="../assets/js/site.js?v=20260926"></script>
 <script src="../assets/js/pages.js?v=20260926"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+  (function () {
+    var location = [37.539205683045, 127.08268274182];
+    var map = L.map("companyMap").setView(location, 17);
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap 기여자</a>'
+    }).addTo(map);
+
+    var companyIcon = L.divIcon({
+      className: "company-map-marker",
+      html: '<svg viewBox="0 0 32 42" aria-hidden="true"><path d="M16 1C7.7 1 1 7.7 1 16c0 11 15 25 15 25s15-14 15-25C31 7.7 24.3 1 16 1Z" fill="currentColor" stroke="#fff" stroke-width="2"/><circle cx="16" cy="16" r="5" fill="#fff"/></svg>',
+      iconSize: [32, 42],
+      iconAnchor: [16, 42],
+      popupAnchor: [0, -40]
+    });
+
+    L.marker(location, { icon: companyIcon, title: "(주)람코리아" })
+      .addTo(map)
+      .bindPopup("<strong>(주)람코리아</strong><br>서울시 광진구 자양로19길 8, 3층");
+  })();
+</script>
 
 </body>
 </html>
