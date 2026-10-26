@@ -227,14 +227,16 @@
     function buildDots() {
       if (!dotsWrap) return;
       dotsWrap.innerHTML = "";
-      slides().forEach(function (_, i) {
+      var dotCount = Math.max(1, maxIndex() + 1);
+      function addDot(i) {
         var b = document.createElement("button");
         b.type = "button";
         b.className = "slider__dot";
         b.setAttribute("aria-label", (i + 1) + "번째 실적 보기");
         b.addEventListener("click", function () { index = i; render(); });
         dotsWrap.appendChild(b);
-      });
+      }
+      for (var i = 0; i < dotCount; i++) addDot(i);
     }
 
     if (prev) prev.addEventListener("click", function () { index = Math.max(0, index - 1); render(); });
@@ -253,7 +255,7 @@
       x0 = null;
     });
 
-    window.addEventListener("resize", render);
+    window.addEventListener("resize", function () { buildDots(); render(); });
     root._ramRefresh = function () { buildDots(); render(); };
     buildDots();
     render();
