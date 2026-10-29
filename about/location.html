@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="../assets/css/base.css?v=20260926">
 <link rel="stylesheet" href="../assets/css/layout.css?v=20260926">
 <link rel="stylesheet" href="../assets/css/components.css?v=20260926">
-<link rel="stylesheet" href="../assets/css/sub.css?v=20261027">
+<link rel="stylesheet" href="../assets/css/sub.css?v=20260926">
 <link rel="stylesheet" href="../assets/css/mobile.css?v=20260926">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
@@ -302,32 +302,10 @@
 <script src="../data/projects.js"></script>
 <script src="../data/notices.js"></script>
 <script src="../data/press.js"></script>
-<script src="../assets/js/site.js?v=20260926"></script>
-<script src="../assets/js/pages.js?v=20260926"></script>
+<script src="../assets/js/site.js?v=20261030"></script>
+<script src="../assets/js/pages.js?v=20261030"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script>
-  (function () {
-    var location = [37.539205683045, 127.08268274182];
-    var map = L.map("companyMap").setView(location, 17);
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap 기여자</a>'
-    }).addTo(map);
-
-    var companyIcon = L.divIcon({
-      className: "company-map-marker",
-      html: '<svg viewBox="0 0 32 42" aria-hidden="true"><path d="M16 1C7.7 1 1 7.7 1 16c0 11 15 25 15 25s15-14 15-25C31 7.7 24.3 1 16 1Z" fill="currentColor" stroke="#fff" stroke-width="2"/><circle cx="16" cy="16" r="5" fill="#fff"/></svg>',
-      iconSize: [32, 42],
-      iconAnchor: [16, 42],
-      popupAnchor: [0, -40]
-    });
-
-    L.marker(location, { icon: companyIcon, title: "(주)람코리아" })
-      .addTo(map)
-      .bindPopup("<strong>(주)람코리아</strong><br>서울시 광진구 자양로19길 8, 3층");
-  })();
-</script>
+<script src="../assets/js/location-map.js?v=20261030"></script>
 
 </body>
 </html>

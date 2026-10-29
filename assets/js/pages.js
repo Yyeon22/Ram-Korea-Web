@@ -40,7 +40,7 @@
     var current = "all";
 
     function cardHtml(item) {
-      var href = RAM.path("projects/detail.html?id=" + encodeURIComponent(item.id));
+      var href = RAM.projectUrl(item.id);
       var stage = item.stage
         ? '<span class="badge badge--ongoing">' + RAM.esc(item.stage) + "</span>"
         : "";
@@ -103,77 +103,25 @@
 
   /* ============================================================
      2. 사업실적 — 상세
+     실제 상세 페이지는 tools/build_projects.py 가 만든 projects/<id>.html.
+     예전 주소(detail.html?id=...)로 들어오면 그 페이지로 옮겨 준다.
      ============================================================ */
   RAM.initProjectDetail = function () {
     var wrap = $("[data-project-detail]");
     if (!wrap || !window.RAM_PROJECTS) return;
 
     var id = RAM.qs("id");
-    var idx = -1;
-    RAM_PROJECTS.forEach(function (p, i) { if (p.id === id) idx = i; });
+    var found = RAM_PROJECTS.some(function (p) { return p.id === id; });
 
-    if (idx === -1) {
+    if (found) {
+      location.replace(RAM.projectUrl(id));
+    } else {
       wrap.innerHTML =
         '<div class="board-empty">' +
           "<p>요청하신 실적을 찾을 수 없습니다.</p>" +
           '<p style="margin-top:20px"><a class="btn btn--line" href="' + RAM.path("projects/index.html") + '">실적 목록으로</a></p>' +
         "</div>";
-      return;
     }
-
-    var item = RAM_PROJECTS[idx];
-    var prev = RAM_PROJECTS[idx - 1];
-    var next = RAM_PROJECTS[idx + 1];
-
-    var titleEl = $("[data-project-title]");
-    if (titleEl) titleEl.innerHTML = RAM.ph(item.title);
-    var crumbEl = $("[data-project-crumb]");
-    if (crumbEl) crumbEl.textContent = String(item.title).replace(/\[확인 필요[^\]]*\]/g, "실적 상세");
-    document.title = String(item.title).replace(/\[확인 필요[^\]]*\]/g, "사업실적") + " | (주)람코리아";
-
-    var images = (item.images && item.images.length ? item.images : [item.thumb]);
-    var gallery = images.map(function (src, i) {
-      return '<figure class="gallery__item"><img src="' + RAM.path(src) + '" alt="' +
-        RAM.esc(item.title) + " 사진 " + (i + 1) + '" loading="lazy" width="800" height="600"></figure>';
-    }).join("");
-
-    /* 값이 비어 있는 항목은 표에서 아예 빼기 */
-    function row(label, value) {
-      if (!value) return "";
-      return "<tr><th scope=\"row\">" + label + "</th><td>" + RAM.ph(value) + "</td></tr>";
-    }
-
-    var navHtml = '<div class="detail-nav">';
-    navHtml += prev
-      ? '<a class="detail-nav__item" href="' + RAM.path("projects/detail.html?id=" + encodeURIComponent(prev.id)) +
-        '"><span>이전 실적</span><strong>' + RAM.ph(prev.title) + "</strong></a>"
-      : '<span class="detail-nav__item is-disabled"><span>이전 실적</span><strong>없음</strong></span>';
-    navHtml += '<a class="btn btn--line" href="' + RAM.path("projects/index.html") + '">목록</a>';
-    navHtml += next
-      ? '<a class="detail-nav__item is-next" href="' + RAM.path("projects/detail.html?id=" + encodeURIComponent(next.id)) +
-        '"><span>다음 실적</span><strong>' + RAM.ph(next.title) + "</strong></a>"
-      : '<span class="detail-nav__item is-next is-disabled"><span>다음 실적</span><strong>없음</strong></span>';
-    navHtml += "</div>";
-
-    wrap.innerHTML = '' +
-      '<div class="gallery" style="margin-bottom:48px">' + gallery + "</div>" +
-      '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:16px">' +
-        '<span class="t-caption" style="color:var(--red-500);font-weight:700">' + RAM.esc(item.category) + "</span>" +
-        (item.stage ? '<span class="badge badge--ongoing">' + RAM.esc(item.stage) + "</span>" : "") +
-      "</div>" +
-      '<h2 class="t-h3" style="margin-bottom:24px">' + RAM.ph(item.title) + "</h2>" +
-      (item.summary ? '<p class="t-body" style="margin-bottom:36px">' + RAM.ph(item.summary) + "</p>" : "") +
-      '<table class="table-info"><tbody>' +
-        row("위치", item.location) +
-        row("사업 규모", item.scale) +
-        row("사업 면적", item.area) +
-        row("연면적", item.floorArea) +
-        row("세대수", item.households) +
-        row("발주기관", item.client) +
-        row("참여기관", item.partners) +
-        row("수행업무", item.role) +
-      "</tbody></table>" +
-      navHtml;
   };
 
   /* ============================================================
