@@ -1,11 +1,21 @@
 # Cloudflare Pages 응답 헤더 설정
 # https://developers.cloudflare.com/pages/configuration/headers/
 
+# 항상 HTTPS 로만 접속 (1년)
+# 허용한 곳의 스크립트·스타일·이미지만 불러온다.
+#   cdn.jsdelivr.net        Pretendard 글꼴
+#   unpkg.com               Leaflet 지도 (오시는 길)
+#   *.tile.openstreetmap.org 지도 타일
+#   cloudflareinsights.com  Cloudflare 방문 통계
+# 외부 서비스를 새로 붙이면 여기에 주소를 추가해야 동작한다.
+# 인라인 <script> 는 막혀 있으니 스크립트는 assets/js/ 파일로 작성할 것.
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://unpkg.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data: https://unpkg.com https://*.tile.openstreetmap.org; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests
 
 # 이미지·폰트 — 하루 캐시 (교체가 드물다)
 /assets/img/*

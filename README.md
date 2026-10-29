@@ -52,7 +52,8 @@ Ram/
 │   └─ bigdata.html        도시빅데이터
 ├─ projects/               사업실적 (2)
 │   ├─ index.html          실적 목록 (분야별 필터)
-│   └─ detail.html         실적 상세
+│   ├─ <실적id>.html       실적 상세 (tools/build_projects.py 가 자동 생성)
+│   └─ detail.html         상세 페이지 틀 + 예전 주소(?id=) 연결용
 ├─ pr/                     홍보센터 (2)
 │   ├─ notice.html         공지사항
 │   └─ press.html          보도자료·갤러리
@@ -67,13 +68,18 @@ Ram/
 │   │   └─ mobile.css      ★ 휴대폰 전용 UI (하단 전화 버튼, 터치 영역 등)
 │   ├─ js/
 │   │   ├─ site.js         공통 스크립트 (외부 라이브러리 없음)
-│   │   └─ pages.js        목록/상세 렌더링 (실적·공지·보도자료)
+│   │   ├─ pages.js        목록/상세 렌더링 (실적 목록·공지·보도자료)
+│   │   ├─ home.js         메인 페이지 슬라이더·최신 글
+│   │   └─ location-map.js 오시는 길 지도
 │   └─ img/                이미지
-│       ├─ hero-city-night.jpg  메인·서브 상단 사진 (회사소개서 표지)
-│       ├─ philosophy-night.jpg  기업이념 사진 (회사소개서 표지 발췌)
+│       ├─ hero-city-night.webp  메인·서브 상단 사진 (회사소개서 표지)
+│       ├─ philosophy-night.webp  기업이념 사진 (회사소개서 표지 발췌)
 │       ├─ biz/                  사업영역 4개 페이지 이미지 (회사소개서 발췌)
 │       ├─ logo*.svg             회사 공식 로고 (PDF 벡터 원본 추출)
 │       └─ work/                 실적 조감도 21장 + 대체 그래픽
+│
+├─ tools/
+│   └─ build_projects.py   실적 상세 페이지 + sitemap.xml 생성기
 │
 └─ data/                   ★ 내용만 고치면 되는 파일
     ├─ projects.js         사업실적
@@ -113,13 +119,22 @@ HTML을 건드릴 필요 없이 **`data/` 폴더의 파일만** 수정하면 됩
 ```
 > ⚠️ 항목 사이의 쉼표(`,`)를 빠뜨리지 않도록 주의해 주세요. 마지막 항목 뒤에는 쉼표를 붙이지 않습니다.
 
+> ⭐ **실적을 추가·수정·삭제했다면 반드시 아래 명령을 한 번 실행하세요.**
+> 실적마다 검색엔진이 읽을 수 있는 상세 페이지(`projects/<id>.html`)와 `sitemap.xml` 을 다시 만듭니다.
+> 실행하지 않으면 새 실적의 상세 페이지가 열리지 않습니다. (파이썬만 있으면 됩니다)
+> ```bash
+> python tools/build_projects.py
+> ```
+
 ### 3-2. 상세 페이지가 열리는 방식
 
-실적·공지·보도자료의 상세 화면은 별도 파일을 만들지 않고 주소 뒤의 `?id=` 값으로 열립니다.
-`data/` 파일에 적은 `id` 가 그대로 주소가 되므로, 글을 추가하면 상세 페이지도 자동으로 생깁니다.
+**실적 상세**는 검색 노출을 위해 실적마다 별도 HTML 파일로 만들어집니다 (`tools/build_projects.py`).
+`data/projects.js` 의 `id` 가 파일 이름이 됩니다. 예전 주소(`detail.html?id=...`)로 들어와도 새 페이지로 자동 이동합니다.
+
+**공지·보도자료 상세**는 별도 파일 없이 주소 뒤의 `?id=` 값으로 열립니다. 글을 추가하면 상세 페이지도 자동으로 생깁니다.
 
 ```
-projects/detail.html?id=jayang-4a     실적 상세
+projects/jayang-4a.html               실적 상세 (자동 생성)
 pr/notice.html?id=notice-001          공지 상세
 pr/press.html?id=press-001            보도자료 상세
 ```
@@ -145,23 +160,27 @@ pr/press.html?id=press-001            보도자료 상세
 
 ## 4. 이미지 교체
 
-실적 사진 21장은 **회사소개서 PDF에서 추출한 실제 조감도**입니다 (`assets/img/work/<실적id>.jpg`).
+실적 사진 21장은 **회사소개서 PDF에서 추출한 실제 조감도**입니다 (`assets/img/work/<실적id>.webp`).
 메인·서브 상단, 기업이념, 사업영역 이미지 모두 회사소개서에서 가져왔습니다.
 **임시 이미지는 더 이상 없습니다.**
 대표이사 사진은 대표님 뜻에 따라 넣지 않기로 했습니다 (CEO 인사말은 글만 표시).
 
 | 위치 | 현재 파일 | 교체할 파일 (권장 규격) |
 |---|---|---|
-| 메인 상단 | ✅ `assets/img/hero-city-night.jpg` (회사소개서 표지) | 더 좋은 사진이 생기면 교체 (1920×1080 이상, 가로형) |
+| 메인 상단 | ✅ `assets/img/hero-city-night.webp` (회사소개서 표지) | 더 좋은 사진이 생기면 교체 (1920×1080 이상, 가로형) |
 | 서브 상단 | 위와 같은 파일 | 교체 시 `assets/css/sub.css` 맨 아래 경로도 함께 수정 |
-| 기업이념 | ✅ `assets/img/philosophy-night.jpg` (회사소개서 표지 발췌) | 사무실·회의 사진이 생기면 교체 (1200×900) |
+| 기업이념 | ✅ `assets/img/philosophy-night.webp` (회사소개서 표지 발췌) | 사무실·회의 사진이 생기면 교체 (1200×900) |
 | 대표이사 | 사진 없이 글만 (대표님 뜻) | 마음이 바뀌면 `about/ceo.html` 상단 주석 해제 후 `assets/img/ceo.jpg` 추가 |
-| 실적 사진 | ✅ `assets/img/work/<실적id>.jpg` 21장 (회사소개서 조감도) | 준공 사진이 생기면 같은 파일명으로 덮어쓰기 |
-| 사업영역 | ✅ `assets/img/biz/*.jpg` 4장 (회사소개서 발췌) — 도시계획사업만 그래픽 | 현장 사진이 생기면 교체 |
+| 실적 사진 | ✅ `assets/img/work/<실적id>.webp` 21장 (회사소개서 조감도) | 준공 사진이 생기면 같은 파일명으로 덮어쓰기 |
+| 사업영역 | ✅ `assets/img/biz/*.webp` 4장 (회사소개서 발췌) — 도시계획사업만 그래픽 | 현장 사진이 생기면 교체 |
 | 심볼·로고 | ✅ 완료 — 회사소개서 PDF 벡터 원본에서 추출 | `logo.svg`(밝은 배경) / `logo-light.svg`(어두운 배경) / `logo-mark*.svg`(심볼) / `favicon.svg` |
 | 공유 썸네일 | ✅ `assets/img/og-image.jpg` (1200×630, 회사소개서 표지 + 로고) | 카톡·문자로 링크를 보낼 때 뜨는 미리보기. 바꾸려면 같은 크기로 덮어쓰기 |
 
-교체 후 HTML 안의 파일 경로에서 확장자를 `.svg` → `.jpg` 로 바꿔 주세요.
+교체 후 HTML 안의 파일 경로에서 확장자를 `.svg` → `.webp`(또는 `.jpg`) 로 바꿔 주세요.
+사진은 용량이 작은 **WebP** 로 넣는 것을 권장합니다. JPG 를 WebP 로 바꾸려면 (파이썬 Pillow 필요):
+```bash
+python -c "from PIL import Image; Image.open('사진.jpg').save('사진.webp', quality=80)"
+```
 사진은 **1MB 이하**로 줄여서 올리면 로딩이 빨라집니다. (가능하면 WebP 권장)
 
 ---

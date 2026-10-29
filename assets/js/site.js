@@ -262,8 +262,13 @@
   };
 
   /* ---------- 8. 실적 카드 마크업 ---------- */
+  /* 실적 상세는 tools/build_projects.py 가 만든 정적 페이지(projects/<id>.html) */
+  RAM.projectUrl = function (id) {
+    return RAM.path("projects/" + encodeURIComponent(id) + ".html");
+  };
+
   RAM.workCard = function (item) {
-    var href = RAM.path("projects/detail.html?id=" + encodeURIComponent(item.id));
+    var href = RAM.projectUrl(item.id);
     var cat = RAM.esc(item.category) + (item.stage ? " · " + RAM.esc(item.stage) : "");
     var meta = [item.location || item.client, item.households]
       .filter(function (v) { return v; }).join(" · ");
